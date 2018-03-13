@@ -1,0 +1,70 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+body {
+    font-family:Helvetica;
+        max-width: 100%;
+}
+
+.all {width: 100%;height: 17.7rem; overflow-y: scroll;overflow-x: hidden; padding-bottom: 0.01rem;background: rgb(255,255,255);position: absolute;}
+.head {width: 100%;overflow: hidden;padding-bottom: 0.01rem;position: relative;}
+.head img {width: 100%;height: 100%;}
+.head p {font-size: 0.35rem;margin-left: 2.61rem;margin-top: -0.73rem;position: absolute;}
+/*头像列表*/
+.numPeople {width: 100%;}
+.numPeople p {font-size: 0.35rem;margin-top: 0.3rem;margin-left: 0.5rem;color: #909090;}
+.numPeople .div1 {width: 60%;border: solid 1px rgba(128, 128, 128, 0.26);margin-top: -0.22rem;margin-left: 3.5rem;}
+.oneUl {list-style: none;margin-top: 0.45rem;margin-left: 0.85rem;}
+.oneUl li {float: left;width: 0.85rem}
+.oneUl span {width: 0.6rem;height: 0.6rem;border: solid 1px rgba(128, 128, 128, 0.26);display: block;border-radius: 12px;}
+.oneUl img {width: 100%;height: 100%;display: block;border-radius: 12px;}
+.twoUl {list-style: none;margin-top: 1.3rem;margin-left: 0.85rem;}
+.twoUl li {float: left;width: 0.85rem}
+.twoUl span {width: 0.6rem;height: 0.6rem;border: solid 1px rgba(128, 128, 128, 0.26);display: block;border-radius: 12px;font-size: 0.5rem;text-align: center;line-height: 0.4rem;font-weight: bolder;}
+.twoUl img {width: 100%;height: 100%;display: block;border-radius: 12px;}
+.numPeople .div2 {width: 90%;border: solid 1px rgba(128, 128, 128, 0.26);margin-top: 2.3rem;margin-left: .5rem;}
+/*头像列表结束*/
+.ruleI {width: 100%;}
+.ruleI p{font-size: 0.4rem;padding-left: 0.6rem;padding-right: 0.5rem;color: #909090;margin-top: 0.3rem;}
+.ruleI #ruleD {width: 90%;height: 1rem;display: block;border-radius: 5px;background: rgb(239,207,75);text-align: center;color: white;line-height: 1rem;font-size: 0.5rem;margin-left:.5rem;margin-top: 0.5rem;font-weight: bolder;}
+.ruleI #invite {width: 44%;height: 1rem;display: block;border-radius: 5px;background: rgb(247,147,30);text-align: center;color: white;line-height: 1rem;font-size: 0.5rem;margin-left:.5rem;margin-top: 0.3rem;font-weight: bolder;}
+.ruleI #mall {width: 44%;height: 1rem;display: block;border-radius: 5px;background: rgb(247,147,30);text-align: center;color: white;line-height: 1rem;font-size: 0.5rem;margin-left:51%;margin-top: -1rem;font-weight: bolder;}
+
+/*日程列表*/
+.dayList {width: 100%;overflow-y:scroll;overflow-x: hidden; height: 10rem;margin-top: 0.2rem;}
+.div3 {width: 100%;border: solid 0.1rem rgba(128, 128, 128, 0.21);margin-top: 0.3rem;}
+.dayList .title {font-size: 0.5rem;margin-top: 0.3rem;padding-left: 0.5rem;}
+#dayListWord {list-style: none;width: 100%;margin-top: 0.3rem;}
+#dayListWord div {border-top:solid 0.1rem rgba(128, 128, 128, 0.21);width: 100%;height: 1.6rem;overflow: hidden;}
+.aready {background: rgb(255,248,220);}
+.aready span {display: block;width: 0.8rem;height: 0.8rem;border-radius: 50%;background: rgb(247,147,30);line-height: .8rem;text-align: center;margin-top: 0.4rem;margin-left: 0.5rem;font-size: 0.37rem;color: white;}
+#dayListWord .p1 {margin-top: -0.95rem;margin-left: 1.5rem;font-size: 0.37rem;}
+#dayListWord .p2 {margin-left: 1.5rem;color: rgb(135,135,133);font-size: 0.37rem;}
+.aready a {margin-top: -0.75rem;margin-right: 5%; text-decoration: none;display: block;font-size: 0.38rem;color: rgb(248,159,54);float: right;}
+.getStart {background: rgb(255,255,255);}
+.getStart span {display: block;width: 0.8rem;height: 0.8rem;border-radius: 50%;background: rgb(41,171,226);line-height: .8rem;text-align: center;margin-top: 0.4rem;margin-left: 0.5rem;font-size: 0.37rem;color: white;}
+.getStart a {margin-top: -0.75rem;margin-right: 5%;text-decoration: none;display: block;font-size: 0.38rem;color: rgb(54,176,228);float: right;}
+.miss {background: rgb(255,255,255);}
+.miss span {display: block;width: 0.8rem;height: 0.8rem;border-radius: 50%;background: rgb(193,39,45);line-height: .8rem;text-align: center;margin-top: 0.4rem;margin-left: 0.5rem;font-size: 0.37rem;color: white;}
+.miss a {margin-top: -0.75rem;margin-right: 5%;text-decoration: none;display: block;font-size: 0.38rem;color: rgb(197,52,57);float: right;}
+.noStart {background: rgb(255,255,255);}
+.noStart span {display: block;width: 0.8rem;height: 0.8rem;border-radius: 50%;background: rgb(179,179,179);line-height: .8rem;text-align: center;margin-top: 0.4rem;margin-left: 0.5rem;font-size: 0.37rem;color: white;}
+.noStart a {margin-top: -0.75rem;margin-right: 5%;text-decoration: none;display: block;font-size: 0.38rem;color: rgb(159,159,159);float: right;}
+.div4 {width: 100%;border: solid 0.05rem rgba(128, 128, 128, 0.21);}
+
+.hide {width: 100%;height: 17.7rem;position: absolute;background:rgba(77,77,77,0.8);display: none;padding-bottom: 0.09rem;overflow-y:scroll;overflow-x: hidden; }
+
+.zf {width: 85%;position: absolute;margin-left: 5.5%;margin-top: 2.5rem;display: none;}
+.zf img {width: 100%;display: block;}
+.zf span {display: block;width: 2.6rem;height: 0.85rem;position: absolute;margin-top:-0.9rem;margin-left: 3.2rem;}

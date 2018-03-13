@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<meta name="format-detection" content="email=no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/flexible.js"></script>
+	<title>飞享流量</title>
+</head>
+<body>
+	<div class="all">
+		<img class="back" src="image/all.png"/>
+		<img id="kd" src="image/tc.png"/>
+		<img id="tc" src="image/kd.png"/>
+	</div>
+	<script>
+		window.onload = function(){
+          $("#tc").bind("click",function(){
+				window.location.href = "two.html";
+			});
+
+          $('#kd').bind("click",function () {
+			  window.location.href="http://www.zj.10086.cn/szhy/cztcdp/200003924278.html";
+          })
+		}
+	</script>
+</body>
+</html>

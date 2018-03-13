@@ -1,0 +1,51 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+ul{
+	list-style: none;
+}
+/*select{
+	-webkit-appearance:none;
+	}*/
+body {
+    font-family:Helvetica;
+    max-width: 100%;
+}
+
+.all {width: 100%;height: 26rem; overflow:hidden;position: absolute;}
+.all .alImg {width: 100%;height: 100%;position: absolute;}
+.all .cityList {width: 84.5%;height: 5.3rem;position: relative;margin-top: 5.9rem;margin-left: 0.8rem;}
+.cityList ul {width: 100%;position: relative;top: 0.35rem;margin-left: 1%;}
+.cityList li {float: left;height: 2.4rem;width: 33%;text-align: center;line-height: 2.4rem;}
+.cityList img {width: 90%;height: 100%;display: block;margin-left: 5%;}
+
+.groupList {width: 84.5%;height: 12rem;margin-left: 7.75%;margin-top: 2rem;overflow-y: scroll;}
+.groupList ul {width: 100%;position: relative;}
+.groupList li {width: 46%;height: 3.5rem;float: left;margin-top: 0.2rem;}
+.lil {margin-left: 8%;}
+.groupList div {width: 100%;height: 100%;}
+.groupList img {display: block;width: 100%;height: 100%;}
+.groupList p {color: white;font-size: 0.45rem;margin-left: 1.25rem;width: 2.5rem;
+	height: .5rem;
+	overflow: hidden;}
+.p1 {
+	margin-top: -2.4rem;
+}
+.p2 {
+	margin-top: 0.2rem;
+	}
+.p3 {
+	margin-top: 0.18rem;
+}
+.groupList span {display: block;width: 2.65rem;height: 0.8rem;margin-left: 0.58rem;z-index: 2;position: absolute;margin-top: -3.48rem;}

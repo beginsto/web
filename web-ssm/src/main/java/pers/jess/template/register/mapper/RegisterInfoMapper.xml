@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.register.dao.RegisterInfoMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.register.model.RegisterInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="reserveone" property="reserveone" jdbcType="VARCHAR" />
+    <result column="reservetwo" property="reservetwo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mobile, source, createtime, reserveone, reservetwo
+  </sql>
+  <select id="queryByParam" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+      <include refid="Base_Column_List" />
+    from t_register_info
+    where
+      mobile = #{mobile,jdbcType=VARCHAR}
+    AND
+      source = #{source,jdbcType=VARCHAR}
+  </select>
+  <select id="quaryAmount" resultType="Integer" parameterType="java.util.Map">
+    select
+      count(*)
+    from t_register_info
+    where
+      source = #{source,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_register_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_register_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.register.model.RegisterInfo" >
+    insert into t_register_info (id, mobile, source, 
+      createtime, reserveone, reservetwo
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{reserveone,jdbcType=VARCHAR}, #{reservetwo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.register.model.RegisterInfo" >
+    insert into t_register_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="reserveone != null" >
+        reserveone,
+      </if>
+      <if test="reservetwo != null" >
+        reservetwo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveone != null" >
+        #{reserveone,jdbcType=VARCHAR},
+      </if>
+      <if test="reservetwo != null" >
+        #{reservetwo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.register.model.RegisterInfo" >
+    update t_register_info
+    <set >
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveone != null" >
+        reserveone = #{reserveone,jdbcType=VARCHAR},
+      </if>
+      <if test="reservetwo != null" >
+        reservetwo = #{reservetwo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.register.model.RegisterInfo" >
+    update t_register_info
+    set mobile = #{mobile,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      reserveone = #{reserveone,jdbcType=VARCHAR},
+      reservetwo = #{reservetwo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

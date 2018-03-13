@@ -1,0 +1,46 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+html,body {
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.base-page{width: 100%;height: 100%;position: relative;overflow-y: scroll;background: rgb(75,39,121);}
+.all {width: 100%;height: 17.79rem;position: relative;border:0;overflow: hidden;}
+.friend {width: 100%;height: 100%;}
+.friendLoginDiv {width: 90%;left: 5%;height: 50%;position: absolute;top: 35%;border-radius: 10px;
+						background: -webkit-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Safari 5.1 - 6.0 */
+  						background: -o-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Opera 11.1 - 12.0 */
+  						background: -moz-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Firefox 3.6 - 15 */
+  						background: linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* 标准的语法 */}
+.context {width: 94%;height: 94%;top: 3%;left: 3%;position: relative;background: rgb(253,255,255);border-radius: 10px;}
+.friendHead {width: 50%;margin-top: .5rem;margin-left: 25%;}
+.tel {width: 80%;height: 1.2rem;border:0;background: rgb(241,241,241);margin-left: 10%;margin-top: .5rem;font-size: .4rem;border-radius: 5px;}
+.num {width: 37%;height: 1.2rem;border:0;background: rgb(241,241,241);margin-left: 10%;margin-top: .5rem;font-size: .4rem;border-radius: 5px;}
+.code {width:38%;height: 1.2rem;display: block;border:0;margin-top: -1.2rem;margin-left: 52%;background: rgba(254,230,118,1);color: white;text-align: center;line-height: 1.2rem;font-size: .4rem;border-radius: 5px;}
+.login {width: 80%;height: 1.2rem;display: block;background: rgb(207,65,69);color: white;font-size: .5rem;line-height: 1.2rem;text-align: center;margin-top: .5rem;margin-left: 10%;border-radius: 5px;}
+.iWant {width: 80%;height: 1.2rem;display: block;background: rgb(207,65,69);color: white;font-size: .5rem;line-height: 1.2rem;text-align: center;margin-top: .5rem;margin-left: 10%;border-radius: 5px;}
+#iWant {width: 6.75rem;height: 1.2rem;display: block;border-radius: 5px;position: absolute;top: 13.2rem;box-sizing: border-box;left: 1.62rem;}
+.dh {width: 40%;margin-left: 34%;margin-top: .5rem;}
+.headP {font-size: .4rem;text-align: center;margin-top: .3rem;}
+.tp {font-size: .4rem;text-align: center;font-weight: bolder;margin-top: .1rem;}
+.fDiv {display: block;}
+.fDiv-1 {display: none;}
+.footer {width: 100%;position: absolute;bottom: 0rem;display: block;}
+
+.iWantDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.iDo {width: 80%;margin-top: 2rem;margin-left: 10%;}
+.ewm {width: 40%;position: absolute;left: 30%;top: 5.7rem;}
+.close {width: 15%;margin-left: 42.5%;margin-top: .5rem;}

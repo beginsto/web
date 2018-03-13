@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no"/>
+<meta name="format-detection" content="email=no"/>
+
+<link href="css/index.css" rel="stylesheet"/>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/rem2.js"></script>
+<script src="js/index.js"></script>
+<title>积分商家</title>
+
+</head>
+<body>
+<div class="all">
+	<div class="top">
+		<!--<div style="width: 3.2rem;margin-left: .3rem;float: left;">
+			<select id="area" style="width: 100%;border: 1px solid #ccc;height: .65rem;" >
+				<option value="all">请选择商户</option>
+				<option value="nh">南湖区</option>
+				<option value="xz">秀洲区</option>
+				<option value="js">嘉善</option>
+				<option value="ph">平湖</option>
+				<option value="hn">海宁</option>
+				<option value="hy">海盐</option>
+				<option value="tx">桐乡</option>
+			</select>
+		</div>
+		<div style="width: 3.2rem;margin-right: .3rem;float: right;">
+
+		</div>
+		<select id="type" style="width: 100%;border: 1px solid #ccc;height: .65rem;" >
+			<option value="all">请选择商户</option>
+			<option value="nh">南湖区</option>
+			<option value="xz">秀洲区</option>
+			<option value="js">嘉善</option>
+			<option value="ph">平湖</option>
+			<option value="hn">海宁</option>
+			<option value="hy">海盐</option>
+			<option value="tx">桐乡</option>
+		</select>
+		<select id="type" style="width: 100%;border: 1px solid #ccc;height: .65rem;" >
+			<option value="all">请选择商户</option>
+			<option value="nh">南湖区</option>
+			<option value="xz">秀洲区</option>
+			<option value="js">嘉善</option>
+			<option value="ph">平湖</option>
+			<option value="hn">海宁</option>
+			<option value="hy">海盐</option>
+			<option value="tx">桐乡</option>
+		</select>
+		<input id="searname" style="width: 96%;border: 1px solid #ccc;height: .62rem;border-radius: 6px;padding-left: .1rem;" type="text" name="sear" placeholder="查询关键字">
+		<div style="width:92%;margin-left: 4%;">
+
+		</div>-->
+		<select  id="area" class="area" >
+			<option value="all">请选择商户</option>
+			<option value="nh">南湖区</option>
+			<option value="xz">嘉兴市</option>
+			<option value="js">嘉善</option>
+			<option value="ph">平湖</option>
+			<option value="hn">海宁</option>
+			<option value="hy">海盐</option>
+			<option value="tx">桐乡</option>
+		</select>
+		<select  id="typeName" class="typeName">
+			<<option value="">请选择类别</option>
+			<option value="购物">购物</option>
+			<option value="美食">美食</option>
+			<option value="生活服务">生活服务</option>
+			<option value="移动门店">移动门店</option>
+			<option value="美容健身">美容健身</option>
+			<option value="其他">其他</option>
+		</select>
+		<input id="searname" type="text" name="sear" placeholder="关键字搜索" />
+		<img id="search" src="image/search.png"/>	
+	</div>
+	<div class="list">
+		<table class="list_table" id="list_table">
+
+		</table>
+		<p style="font-size:.4rem;color:#fff;margin:.2rem;display: none">暂无数据...</p>
+	</div>
+
+	<div class="searchfaile">没有符合条件的搜索结果</div>
+</div>
+</body>
+</html>

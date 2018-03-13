@@ -1,0 +1,78 @@
+
+/*bind phone*/
+html{ background-color:#f7f7f7; }
+.main{ padding:3% 2%; margin:0 auto; min-height:400px; padding-top:25px; font-family:"微软雅黑";}
+.e-main{padding-top:0px;}
+
+.pb-tip{ width:100%;height:30px;line-height:30px; padding-left:27px; font-size:12px;color:#fff; background:url(phone_bind_icon1.png) no-repeat 5px 7px #ff9600; background-size:15px auto; display:none;}
+
+.info-box{ font-size:12px; background-color:#fff; border:1px solid #cfcfcf; border-radius:5px;}
+.info-box li{ padding:11px 0; text-indent:1em; font-size:1.25em; border-top:1px solid #e6e6e6;}
+.info-box li:nth-child(1){ border-top:none;}
+.pb-form li{ height:60px;}
+.pb-form .li1,.pb-form .li2{ padding-bottom:15px;}
+.pb-form .li4{ height:140px;}
+
+.dg-header{ height:40px; background:url(dg_header.png) no-repeat #0085d0 0 0; background-size:320px 40px;}
+
+/*
+input.phone-txt{ width:243px;}
+input.prove-txt{ width:130px;}
+*/
+input.h5-txt1{ padding:11px 0; font-size:1.25em; text-indent:1em;}
+input.phone-txt{ width:100%;}
+input.prove-txt{ width:55%; float:left;}
+.get-prove-btn{ min-width:18%; float:right;}
+.get-prove-btn.dis{ background-color:#999; cursor:default;}
+.sure-btn{ width:100%; font-size:1.25em;}
+
+.connect-box{ padding:30px 0 15px 0;}
+.connect-box .topic{ padding-bottom:8px;}
+
+.pb-gou{ width:130px;height:125px; padding-top:45px; background:url(phone_bind_icon2.png) no-repeat 0 45px; background-size:130px auto; margin:0 auto;}
+.result-tip{ padding-top:15px;padding-bottom:10px; text-align:center;}
+
+/*use for js*/
+.item-box{ display:block;}
+.h5-btn2{ padding:14px 0;}
+.phone-img{ background-color:#fff; text-align:center; height:45px; line-height:45px; min-width:197px; width:55%; margin-bottom:20px;}
+.phone-img img{ vertical-align:middle;}
+.circle{ width:20px; height:20px; border:1px solid #fff; border-radius:20px; text-align:center; display:inline-block;  margin:0px 8px 0 30px;}
+.cricle-blue{text-align:center; padding:5% 0 1%;}
+.pop-title{ text-align:center; padding:10px 0;}
+.phone-msg{ width:80%; margin:1% auto; border-radius:8px; color:#666; overflow:hidden; border:2px solid #e1e1e1; }
+.phone-msg li{  width:100%; height:40px; line-height:40px; padding-left:20px; }
+.h5-alert2 .alert-btn{ padding:14px;}
+
+/*弹出层*/
+.pop {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.6); z-index: 9; } 
+.alert_wrap {
+}
+.alert_wrap {
+	position: relative;
+	margin: 50px auto; 
+	width: 280px;
+	background-color: #f8f7f5;
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px 0 30px;
+}
+.alert_wrap img {
+	width: 80px;
+	height: 80px;
+}
+.alert_msg {
+	color: #565a5c;
+	margin: 10px auto 15px;
+	font-size: 14px;
+	width: 60%;
+}
+.alert_btn {
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	background-color: #ff8088;
+	border-radius: 5px;
+}

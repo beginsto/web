@@ -1,0 +1,53 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+ul{
+	list-style: none;
+}
+/*select{
+	-webkit-appearance:none;
+	}*/
+body {
+    font-family:Helvetica;
+    max-width: 100%;
+}
+
+.all {width: 100%;position: absolute;}
+.all .alImg {width: 100%;height: 29.5rem;position: absolute;}
+.all .cityList {width: 84.5%;height: 5.3rem;position: relative;margin-top: 6.4rem;margin-left: 0.8rem;}
+.cityList ul {width: 100%;position: relative;}
+.ul1 {top: 0.5rem;}
+.ul2 {top: 0.9rem;}
+.cityList li {float: left;height: 2.4rem;width: 33%;text-align: center;line-height: 2.4rem;}
+.cityList img {width: 100%;display: block;margin-left: 5%;}
+
+.groupList {width: 84.5%;height: 12rem;margin-left: 7.75%;margin-top: 3.1rem;position: absolute;}
+.change {width: 100%;height: 1rem;}
+.change img {width: 96%;margin-left: 2%;}
+.change span {float: left;display: block;height: 0.7rem;border-radius: 5px;position: absolute;margin-top: -0.8rem;}
+.sp1 {margin-left: 2%;width: 30%;}
+.sp2 {width: 33%;margin-left: 32%;}
+.sp3 {width: 32%;margin-left: 66%;}
+.change span img {width: 80%;margin-left: 10%;margin-top: 1.5%;}
+.content {width: 100%;height: 5rem;position: absolute;}
+.content span {display: block;width: 1.7rem;height: 1.64rem;position: absolute;float: left;}
+.oneG {width: 100%;height: 3.4rem;}
+.oneG img {width: 100%;position: absolute;}
+.oneG .sp img {width: 100%;}
+.oneG .spOne1 {margin-top: 1.2rem;margin-left: 1.7rem;}
+.oneG .spOne2 {margin-top: 1.2rem;margin-left: 3.96rem;}
+.oneG .spOne3 {margin-top: 1.2rem;margin-left: 6.26rem;}
+.page1 {display: block;}
+.page2 {display: none;}
+.page3 {display: none;}

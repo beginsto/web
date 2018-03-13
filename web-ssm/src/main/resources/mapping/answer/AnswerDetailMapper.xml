@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.answer.dao.AnswerDetailMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.answer.model.AnswerDetail" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="quesId" property="quesid" jdbcType="INTEGER" />
+    <result column="answerRight" property="answerright" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="answerTime" property="answertime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, quesId, answerRight, answer, answerTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_answer_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_answer_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.answer.model.AnswerDetail" >
+    insert into t_answer_detail (id, userId, quesId, 
+      answerRight, answer, answerTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{quesid,jdbcType=INTEGER}, 
+      #{answerright,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{answertime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.answer.model.AnswerDetail" >
+    insert into t_answer_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="quesid != null" >
+        quesId,
+      </if>
+      <if test="answerright != null" >
+        answerRight,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="answertime != null" >
+        answerTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="quesid != null" >
+        #{quesid,jdbcType=INTEGER},
+      </if>
+      <if test="answerright != null" >
+        #{answerright,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="answertime != null" >
+        #{answertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.answer.model.AnswerDetail" >
+    update t_answer_detail
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="quesid != null" >
+        quesId = #{quesid,jdbcType=INTEGER},
+      </if>
+      <if test="answerright != null" >
+        answerRight = #{answerright,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="answertime != null" >
+        answerTime = #{answertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.answer.model.AnswerDetail" >
+    update t_answer_detail
+    set userId = #{userid,jdbcType=INTEGER},
+      quesId = #{quesid,jdbcType=INTEGER},
+      answerRight = #{answerright,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR},
+      answerTime = #{answertime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,90 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+/*select{
+	-webkit-appearance:none;
+	}*/
+body {
+    font-family:Helvetica;
+    max-width: 100%;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+    color:    rgba(255,255,255,0.7);font-size: 0.4rem;font-weight: bolder;
+}
+input:-moz-placeholder, textarea:-moz-placeholder { 
+    color:    rgba(255,255,255,0.7);font-size: 0.4rem;font-weight: bolder;
+}
+input::-moz-placeholder, textarea::-moz-placeholder { 
+    color:    rgba(255,255,255,0.7);font-size: 0.4rem;font-weight: bolder;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+    color:    rgba(255,255,255,0.7);font-size: 0.4rem;font-weight: bolder;
+}
+
+.all {width: 100%;height: 26rem; overflow:hidden; position: absolute;}
+.all img {width: 100%;height: 100%;display: block;position: absolute;}
+.all .rule {display: block;height: 0.7rem;width: 2rem;margin-top: 0.4rem; position: absolute;}
+.all .mall {display: block;height: 0.7rem;width: 1.6rem;margin-top: 11.75rem;margin-left: 7.2rem; position: absolute;}
+.all .qJuan {display: block;height: 1.9rem;width: 6.9rem;margin-top: 22.3rem;margin-left: 1.5rem; position: absolute;}
+
+.hide {width: 100%;height: 100%;position: fixed;display: none;overflow:hidden;background:rgba(77,77,77,0.5);}
+
+.ruleDiv {width: 100%;height: 100%;position: fixed; display: none;}
+.ruleDiv img {width: 100%;}
+.ruleDiv #ruleClose {display: block;width: 0.8rem;height: 0.8rem;margin-top: -10.8rem;margin-left: 8.75rem;position: absolute;}
+.ruleDiv .ruleContext {width: 90%;height: 9.5rem;margin-left: 5%;margin-top: -10rem;overflow-x: hidden;overflow-y: scroll;}
+.ruleContext p {color: white;font-size: 0.4rem;padding-left: 0.7rem;padding-right: 0.4rem;padding-top: 0.05rem;}
+.ruleContext span {color: rgb(4,222,212);}
+
+.login {width: 100%;height: 100%;position: fixed;display: none;}
+.login img {width: 120%;margin-left: -1rem;}
+.loginDiv {width: 78%;height: 3.5rem;margin-left: 11%;margin-top: -5rem;}
+.loginDiv .tel {border:0;width: 100%;height: 1.1rem;background: rgb(101,66,232);border-radius: 5px;}
+.loginDiv .num {border:0;width: 45%;height: 1.1rem;background: rgb(101,66,232);border-radius: 5px;margin-top: 0.5rem;}
+.loginDiv #code {display: block;height:1.1rem;width: 35%;margin-left: 43%;background: rgb(0,173,205);color: white;font-size: 0.4rem;line-height: 1.1rem;text-align: center;border-radius: 5px;margin-top: -1.1rem;position: absolute;}
+.login .loginS {display: block;width: 4.1rem;height: 1.2rem;position: absolute;margin-left: 2.9rem;}
+
+.rs {width: 100%;height: 100%;position: fixed;display: none;}
+.rs img {width: 120%;margin-left: -1rem;}
+.rs #close {display: block;width: 4.1rem;height: 1.2rem;position: absolute;margin-left: 2.9rem;margin-top: -1.5rem;}
+
+/*商城界面*/
+.allMall {width: 100%;height: 100%;background: rgb(72,5,143);position: absolute;}
+.mallDiv {width: 90%;height: 95%;background: rgb(166,99,222);border-radius: 10px;margin-top: 5%;margin-left: 5%;position: absolute;}
+.mallDiv p {text-align: center;font-size: 0.7rem;color: white;font-weight: bolder;margin-top: 1rem;letter-spacing: 0.1rem;}
+
+.searchDiv {width: 90%;height: 25%;margin-left: 5%;margin-top: 1.5rem;}
+.searchDiv select{width: 47%;height: 1rem;border-radius: 5px;display: block;font-size: 0.37rem;}
+.searchDiv .searchArea {margin-left: 53%;margin-top: -1rem;}
+.searchDiv input {width: 100%;height: 1rem;font-size: 0.37rem;border-radius: 5px;border:0;margin-top: 0.3rem;}
+.searchDiv span {display: block;width: 100%;height: 1rem;font-size: 0.4rem;text-align: center;line-height: 1rem;color: white;background: rgb(72,6,144);margin-top: 0.3rem;}
+
+.tableDiv {width: 90%;height: 8.5rem;margin-left: 5%;overflow-y: scroll;position: absolute;border-radius: 8px;}
+.tableDiv .tableList {width: 100%;border:0;table-layout: fixed;}
+.tableList .headth {background: rgb(94,166,74);text-align: center;line-height: 0.8rem;font-size: 0.37rem;color: white;}
+.tableList tr {height: 0.8rem;}
+.th1 {width: 20%;}
+.th2 {width: 20%;}
+.th3 {width: 30%;}
+.th4 {width: 30%;}
+.tableList td {background: rgb(254,254,255);text-align: center;font-size: 0.35rem;word-break: break-word;border:solid 1px rgb(140,184,129);}
+
+.tableDiv2 {width: 90.1%;height: 0.9rem; margin-left: 4.95%;position: absolute;border-radius: 8px;}
+.tableDiv2 .tableListRe {width: 100%;border:0;table-layout: fixed;}
+.tableListRe tr {height: 0.87rem;}
+.tableListRe td {background: rgb(94,166,74);text-align: center;font-size: 0.37rem;word-break: break-word;color: white;}
+.tableListRe .te1 {width: 21%;border-right:solid 3px white;border-top-left-radius: 8px;}
+.tableListRe .te2 {width: 20.3%;border-right:solid 3px white;}
+.tableListRe .te3 {width: 30.5%;border-right:solid 3px white;}
+.tableListRe .te4 {width: 30%;border-top-right-radius: 8px;}

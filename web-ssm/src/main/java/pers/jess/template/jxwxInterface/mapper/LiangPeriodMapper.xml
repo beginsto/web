@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.jxwxInterface.dao.LiangPeriodMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.jxwxInterface.model.LiangPeriod" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mid" property="mid" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mid, version
+  </sql>
+  <select id="listByVersion" resultType="pers.jess.template.jxwxInterface.model.LiangPeriod" parameterType="java.lang.Integer" >
+    select
+      p1.mid mid,
+      p2.phone phone,
+      p2.is_used isUsed
+    from t_liang_period p1
+    left join t_liang_phone p2
+    on (p1.mid = p2.id)
+    where p1.version = #{version,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_liang_period
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.jxwxInterface.model.LiangPeriod" >
+    insert into t_liang_period (id, mid, version
+      )
+    values (#{id,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.jxwxInterface.model.LiangPeriod" >
+    insert into t_liang_period
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mid != null" >
+        mid,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mid != null" >
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.jxwxInterface.model.LiangPeriod" >
+    update t_liang_period
+    <set >
+      <if test="mid != null" >
+        mid = #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.jxwxInterface.model.LiangPeriod" >
+    update t_liang_period
+    set mid = #{mid,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

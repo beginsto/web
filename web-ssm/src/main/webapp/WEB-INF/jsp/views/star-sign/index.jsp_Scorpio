@@ -1,0 +1,157 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<meta name="format-detection" content="email=no"/>
+
+	<link href="${ctx }/css/star-sign/scorpio.css" rel="stylesheet"/>
+	<script src="${ctx }/js/common/jquery-1.11.0.min.js"></script>
+	<script src="${ctx }/js/common/flexible.js"></script>
+	<script src="${ctx }/js/star-sign/scorpio/index.js"></script>
+	<script type="text/javascript" src="${ctx }/js/common/Data/amount.js"></script>
+	<style type="text/css">
+		.mask {
+			width: 100%;
+			height: 17.7rem;
+			overflow: hidden;
+			position: absolute;
+			top: 0rem;
+			z-index: 10;
+			background: #fff;
+			display: block;
+		}
+
+		.sk-three-bounce {
+			margin: 5rem auto;
+			width: 80px;
+			text-align: center;
+		}
+
+		.sk-three-bounce .sk-child {
+			width: 10px;
+			height: 10px;
+			background-color: #333;
+			border-radius: 100%;
+			display: inline-block;
+			-webkit-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+			animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+		}
+
+		.sk-three-bounce .sk-bounce1 {
+			-webkit-animation-delay: -0.32s;
+			animation-delay: -0.32s;
+		}
+
+		.sk-three-bounce .sk-bounce2 {
+			-webkit-animation-delay: -0.16s;
+			animation-delay: -0.16s;
+		}
+
+		@-webkit-keyframes sk-three-bounce {
+			0%, 80%, 100% {
+				-webkit-transform: scale(0);
+				transform: scale(0);
+			}
+			40% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+			}
+		}
+
+		@keyframes sk-three-bounce {
+			0%, 80%, 100% {
+				-webkit-transform: scale(0);
+				transform: scale(0);
+			}
+			40% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+			}
+		}
+
+	</style>
+	<title>天蝎座</title>
+</head>
+<body>
+	<div class="all">
+		<img class="box" src="${ctx }/images/star-sign/scorpio/box.png"/>
+		<img id="start" style="position: absolute; width: 50%;margin: 1rem 0%;z-index: 10;" src="${ctx }/images/star-sign/scorpio/start-1.png"/>
+		<img class="award" style="position: absolute;width: 68%;margin: .7rem 40%;z-index:10" src="${ctx }/images/star-sign/scorpio/award.png"/>
+		<img id="noT" src="${ctx }/images/star-sign/scorpio/noT.png"/>
+	</div>
+	<input type="hidden" id="openid" value="${openid }" />
+	<div class="hide"></div>
+	<div class="ruleAll">
+		<div class="ruleX">
+		<div class="ruleButton">
+			<img src="${ctx }/images/star-sign/scorpio/rule.png"/>
+		</div>
+		<div class="ruleContext">
+			<p class="pHead">本期活动时间:2017/10/24-2017/11/22</p>
+			<p>活动对象:嘉兴移动官微绑定用户且手机号码实名登记时间符合每月星座日期规定。</p>
+			<p>活动规则:</p>
+			<p>1)在嘉兴移动官微回复"天蝎座"，获取活动链接；</p>
+			<p>2)本月是天蝎座的用户，可以直接抽取奖励，100%中奖，每人只可参与一次抽奖；非天蝎座的用户通过邀请通道成功邀请天蝎座好友参与活动，也可获得一次奖励(每期活动仅限一次)；每位天蝎座好友只可帮忙验证5次。</p>
+			<p>本期活动奖励:</p>
+			<p>1元话费（中奖概率20%）</p>
+			<p>2元话费（中奖概率10%)</p>
+			<p>3元话费（中奖概率4%）</p>
+			<p>5元话费（中奖概率1%）</p>
+			<p>100M流量券（中奖概率25%）</p>
+			<p>200M流量券（中奖概率20%）</p>
+			<p>300M流量券（中奖概率15%）</p>
+			<p>500M流量券（中奖概率5%）</p>
+			<p>共计20000份</p>
+			<p class="red">奖品数量有限，先到先得</p>
+			<p class="bot">话费和流量券奖励将在中奖后的15个工作日内完成赠送。 话费奖励直接赠送至用户馈赠金账户。流量奖励以流量券形式赠送至用户手机营业厅账户。需下载浙江移动手机营业厅客户端兑换使用。（流量券兑换流量为省内2/3/4G流量，流量券有效期90天，逾期作废。兑换流量当月有效，次月不结转）</p>
+		</div>
+		</div>
+	</div>
+	<div class="hideH"></div>
+	<div class="login">
+		<img class="loginL" src="${ctx }/images/star-sign/scorpio/loginL.png"/>
+		<div class="loginContext">
+			<br/>
+		<!--<input class="tel" type="tel" name="tel" placeholder="  请输入手机号码"/>
+		<input class="num" type="num" name="num" placeholder="  请输入验证码">
+		<span id="code">
+			<img class="cod" src="${ctx }/images/star-sign/scorpio/code.png"/>
+			<p id="getNumb">获取验证码</p>
+		</span>-->
+		<a href="http://jxyd.1860.cn/app/bindMobile/index?openid=${openid }" class="now">立即绑定</a>
+		</div>
+	</div>
+	<div class="rs">
+		<img src="${ctx }/images/star-sign/scorpio/loginS.png"/>
+	</div>
+	<div class="startGift">
+		<div class="turnAll">
+		<div class="turn">
+			<div class="wen">
+				<img src="${ctx }/images/star-sign/scorpio/wenhao.png"/>
+			</div>
+			<div class="gift">
+			<img src="${ctx }/images/star-sign/scorpio/1R.png"/>
+			</div>
+		</div>
+		</div>
+		<img class="rBox" src="${ctx }/images/star-sign/scorpio/boxR.png"/>
+		<img class="knowI" src="${ctx }/images/star-sign/scorpio/Iknow.png"/>
+	</div>
+	<div class="mask">
+		<div class="sk-three-bounce">
+			<div class="sk-child sk-bounce1"></div>
+			<div class="sk-child sk-bounce2"></div>
+			<div class="sk-child sk-bounce3"></div>
+		</div>
+	</div>
+</body>
+</html>

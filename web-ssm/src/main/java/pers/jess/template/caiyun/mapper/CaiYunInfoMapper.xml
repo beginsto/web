@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.caiyun.dao.CaiYunInfoMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.caiyun.model.CaiYunInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="platform" property="platform" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="reserve" property="reserve" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mobile, platform, createtime, reserve
+  </sql>
+  <select id="getAmount" resultType="Integer" parameterType="java.lang.String" >
+    select count(*) from t_caiyun_info where platform = #{platform,jdbcType=VARCHAR}
+  </select>
+  <select id="queryByMobile" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from t_caiyun_info
+    where mobile = #{mobile,jdbcType=VARCHAR}
+    and  platform=#{platform,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_caiyun_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_caiyun_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.caiyun.model.CaiYunInfo" >
+    insert into t_caiyun_info (id, mobile, platform, 
+      createtime, reserve)
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{platform,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{reserve,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.caiyun.model.CaiYunInfo" >
+    insert into t_caiyun_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="platform != null" >
+        platform,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="reserve != null" >
+        reserve,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve != null" >
+        #{reserve,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.caiyun.model.CaiYunInfo" >
+    update t_caiyun_info
+    <set >
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve != null" >
+        reserve = #{reserve,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.caiyun.model.CaiYunInfo" >
+    update t_caiyun_info
+    set mobile = #{mobile,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      reserve = #{reserve,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

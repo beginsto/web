@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<meta name="format-detection" content="email=no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/flexible.js"></script>
+	<title>查询虚拟网</title>
+</head>
+<body>
+	<div class="all">
+		<img class="alImg" src="image/all.png"/>
+		<div class="lo">
+			<div class="tit">
+				<span class="sp1">原虚拟网:</span>
+				<span class="sp2">原短号:</span>
+			</div>
+			<div class="loginDiv">
+				<div class="tm"><span id="tm">嘉兴市嘉善县大云镇人民政府虚拟网</span><img class="btn" src="image/xia.png"/></div>
+				<select id="city" class="city">
+					<option value="9">嘉兴市嘉善县大云镇人民政府虚拟网</option>
+					<option value="15">嘉兴市平湖市</option>
+					<option value="18">嘉兴市海宁市</option>
+					<option value="21">嘉兴市海盐县</option>
+					<!--<option value="0">请选择各个并网的虚拟网名称</option>
+					<option>嘉兴市嘉善县大云镇人民政府虚拟网</option>
+					<option>海盐县澉浦镇人民政府虚拟网</option>
+					<option>浙江省平湖市当湖街道办事处虚拟网</option>
+					<option>嘉兴市南湖区余新镇人民政府虚拟网</option>-->
+				</select>
+				<input type="num" name="num" class="num" placeholder="请输入6位短号"/>
+			</div>
+		</div>
+		<span class="login"></span>
+	</div>
+	<div class="rsS">
+		<div class="na"><p>该号码<span class="readNum">132141</span>已迁移至<span class="area">浙江省平湖市当湖街道办事处虚拟网</span>，</br></br>新短号为<span class="newNum">654321</span></p></div>
+		<span class="close">返回</span>
+	</div>
+	<div class="rsF">
+		<div class="fna"><p>您不是并网目标客户，无法查询</p></div>
+		<!--<span class="sp1">重试</span>-->
+		<span class="sp2">返回</span>
+	</div>
+
+	<script type="text/javascript">
+        $(function () {
+
+            //方法二：
+            (function ($) {
+                $.getUrlParam = function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]); return null;
+                }
+            })(jQuery);
+
+            //方法二：
+            var xx = $.getUrlParam('openid');
+            console.log(xx)
+
+            //方法一：
+            // var xx = getUrlParam('reurl');
+
+
+          //  alert(xx);
+
+        });
+
+
+
+
+	</script>
+
+	<script>
+		window.onload = function(){
+
+            (function ($) {
+                $.getUrlParam = function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]); return null;
+                }
+            })(jQuery);
+
+            var openid = $.getUrlParam('openid');
+
+
+			var ci = 1;
+			var flag = true;
+			$("#city").change(function(){
+		        var s=$("#city").find("option:selected").text();
+		        $("#tm").text(s);
+		        $(".tm").css("color","black");
+		        ci=0;
+	    	});
+	    	$(".login").bind("click",function(){
+
+				var area=$("#city").find("option:selected").val();
+				//console.log(area)
+
+				if (area == 0){alert("请选择网店");return }
+				var num = $('.num').val()
+				$.ajax({
+					url:'../../xnw/queryInfo',
+					data:{openid:openid,shortTel:num,areaCode:area},
+					dataType:'json',
+					success:function (data) {
+						if (data.resultCode == 200){
+							var m = JSON.parse(data.message)
+
+							$(".readNum").text(num);
+							$(".area").text(m.vpmnName);
+							$(".newNum").text(m.shortNum);
+							$(".rsS").show();
+						}else{
+						    if(data.message == 10002){
+						        flag = false;
+						        $('.fna p').text('您还未关联手机号码')
+								$('.sp2').text('立即绑定')
+							}else if(data.message == 20002){
+                                flag = true;
+                                $('.fna p').text('您查询用户还未并网，无法查询')
+                                $('.sp2').text('返回')
+							}else{
+
+							}
+							$(".rsF").show();
+						}
+					},
+					error:function (res) {
+
+					}
+				})
+
+    		});
+    		$(".close").bind("click",function(){
+    			$(".rsS").hide();
+    		});
+    		$(".rsF .sp2").bind("click",function(){
+    		    if(!flag){
+    		        window.location.href="http://jxyd.1860.cn/app/bindMobile/index?openid="+openid
+					return
+				}
+
+    			$(".rsF").hide()
+    			$(".num").val("");
+    			var a = document.getElementById("city");
+    			a.options[0].selected = true;
+    			var s=$("#city").find("option:selected").text();
+		        $("#tm").text(s);
+    		});
+    		$(".rsF .sp1").bind("click",function(){
+    			var num=$("input[name='num']").val();
+    			var area=$("#city").find("option:selected").text();
+    			//submit
+    			var rs=1;
+    			  if(rs==1){
+		            	$(".readNum").text(num);
+		            	$(".area").text(area);
+		            	$(".newNum").text(newNum);
+		            	$(".rsS").show();
+		            }else{
+		            	$(".rsF").show();
+		            }
+
+    		});
+		}
+	</script>
+</body>
+</html>

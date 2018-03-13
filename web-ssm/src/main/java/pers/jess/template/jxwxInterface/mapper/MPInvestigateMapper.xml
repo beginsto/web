@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.jxwxInterface.dao.MPInvestigateMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.jxwxInterface.model.MPInvestigate" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="mpname" property="mpname" jdbcType="VARCHAR" />
+    <result column="cretime" property="cretime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="advice" property="advice" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, phone, answer, mpname, advice, cretime, remark
+  </sql>
+  <select id="queryByPhone" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_mp_investigate
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="pers.jess.template.jxwxInterface.model.MPInvestigate" >
+    insert into t_mp_investigate (id, phone, answer, 
+      mpname, cretime, remark, 
+      advice)
+    values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, 
+      #{mpname,jdbcType=VARCHAR}, #{cretime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{advice,jdbcType=VARCHAR})
+  </insert>
+
+</mapper>

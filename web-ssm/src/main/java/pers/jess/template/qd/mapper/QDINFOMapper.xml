@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.qd.dao.QDINFOMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.qd.model.QDINFO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="phone1" property="phone1" jdbcType="VARCHAR" />
+    <result column="phone2" property="phone2" jdbcType="VARCHAR" />
+    <result column="orgname" property="orgname" jdbcType="VARCHAR" />
+    <result column="cretime" property="cretime" jdbcType="VARCHAR" />
+    <result column="fh" property="fh" jdbcType="INTEGER" />
+    <result column="zd" property="zd" jdbcType="INTEGER" />
+    <result column="kd" property="kd" jdbcType="INTEGER" />
+    <result column="zf" property="zf" jdbcType="INTEGER" />
+    <result column="jf" property="jf" jdbcType="INTEGER" />
+    <result column="cj" property="cj" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, phone1, phone2, orgname, cretime, fh, zd, kd, zf, jf, cj
+  </sql>
+  <select id="query" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_qd_info
+    where phone1 = #{phone,jdbcType=VARCHAR}
+    or
+    phone2 = #{phone,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_qd_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_qd_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.qd.model.QDINFO" >
+    insert into t_qd_info (id, phone1, phone2, 
+      orgname, cretime, fh, 
+      zd, kd, zf, jf, 
+      cj)
+    values (#{id,jdbcType=INTEGER}, #{phone1,jdbcType=VARCHAR}, #{phone2,jdbcType=VARCHAR}, 
+      #{orgname,jdbcType=VARCHAR}, #{cretime,jdbcType=VARCHAR}, #{fh,jdbcType=INTEGER}, 
+      #{zd,jdbcType=INTEGER}, #{kd,jdbcType=INTEGER}, #{zf,jdbcType=INTEGER}, #{jf,jdbcType=INTEGER}, 
+      #{cj,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.qd.model.QDINFO" >
+    insert into t_qd_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="phone1 != null" >
+        phone1,
+      </if>
+      <if test="phone2 != null" >
+        phone2,
+      </if>
+      <if test="orgname != null" >
+        orgname,
+      </if>
+      <if test="cretime != null" >
+        cretime,
+      </if>
+      <if test="fh != null" >
+        fh,
+      </if>
+      <if test="zd != null" >
+        zd,
+      </if>
+      <if test="kd != null" >
+        kd,
+      </if>
+      <if test="zf != null" >
+        zf,
+      </if>
+      <if test="jf != null" >
+        jf,
+      </if>
+      <if test="cj != null" >
+        cj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="phone1 != null" >
+        #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null" >
+        #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null" >
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="cretime != null" >
+        #{cretime,jdbcType=VARCHAR},
+      </if>
+      <if test="fh != null" >
+        #{fh,jdbcType=INTEGER},
+      </if>
+      <if test="zd != null" >
+        #{zd,jdbcType=INTEGER},
+      </if>
+      <if test="kd != null" >
+        #{kd,jdbcType=INTEGER},
+      </if>
+      <if test="zf != null" >
+        #{zf,jdbcType=INTEGER},
+      </if>
+      <if test="jf != null" >
+        #{jf,jdbcType=INTEGER},
+      </if>
+      <if test="cj != null" >
+        #{cj,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.qd.model.QDINFO" >
+    update t_qd_info
+    <set >
+      <if test="phone1 != null" >
+        phone1 = #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null" >
+        phone2 = #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null" >
+        orgname = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="cretime != null" >
+        cretime = #{cretime,jdbcType=VARCHAR},
+      </if>
+      <if test="fh != null" >
+        fh = #{fh,jdbcType=INTEGER},
+      </if>
+      <if test="zd != null" >
+        zd = #{zd,jdbcType=INTEGER},
+      </if>
+      <if test="kd != null" >
+        kd = #{kd,jdbcType=INTEGER},
+      </if>
+      <if test="zf != null" >
+        zf = #{zf,jdbcType=INTEGER},
+      </if>
+      <if test="jf != null" >
+        jf = #{jf,jdbcType=INTEGER},
+      </if>
+      <if test="cj != null" >
+        cj = #{cj,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.qd.model.QDINFO" >
+    update t_qd_info
+    set phone1 = #{phone1,jdbcType=VARCHAR},
+      phone2 = #{phone2,jdbcType=VARCHAR},
+      orgname = #{orgname,jdbcType=VARCHAR},
+      cretime = #{cretime,jdbcType=VARCHAR},
+      fh = #{fh,jdbcType=INTEGER},
+      zd = #{zd,jdbcType=INTEGER},
+      kd = #{kd,jdbcType=INTEGER},
+      zf = #{zf,jdbcType=INTEGER},
+      jf = #{jf,jdbcType=INTEGER},
+      cj = #{cj,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

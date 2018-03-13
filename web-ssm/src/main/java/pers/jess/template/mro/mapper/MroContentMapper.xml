@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.mro.dao.MroContentMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.mro.model.MroContent" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="img_banner" property="imgBanner" jdbcType="VARCHAR" />
+    <result column="img_top" property="imgTop" jdbcType="VARCHAR" />
+    <result column="img_bottom" property="imgBottom" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="issue" property="issue" jdbcType="INTEGER" />
+    <result column="bottom_title" property="bottomTitle" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="pers.jess.template.mro.model.MroContent" extends="BaseResultMap" >
+    <result column="introduce" property="introduce" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, area, title, img_banner, img_top, img_bottom, state, issue, bottom_title
+  </sql>
+  <sql id="Blob_Column_List" >
+    introduce
+  </sql>
+  <select id="query" resultType="pers.jess.template.mro.model.MroContent">
+    select
+      c.id id,
+      c.area area,
+      c.title title,
+      c.img_banner imgBanner,
+      c.img_top imgTop,
+      c.img_bottom imgBottom,
+      c.introduce introduce,
+      c.state state,
+      c.issue issue,
+      c.bottom_title bottomTitle,
+      a.amount amount
+    from t_mro_content c
+    left join
+      t_mro_amount a
+    on (c.id = a.pid)
+    where c.state = 1
+    order by c.id asc
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_mro_content
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_mro_content
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.mro.model.MroContent" >
+    insert into t_mro_content (id, area, title, 
+      img_banner, img_top, img_bottom, 
+      state, issue, bottom_title, 
+      introduce)
+    values (#{id,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{imgBanner,jdbcType=VARCHAR}, #{imgTop,jdbcType=VARCHAR}, #{imgBottom,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{issue,jdbcType=INTEGER}, #{bottomTitle,jdbcType=VARCHAR}, 
+      #{introduce,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.mro.model.MroContent" >
+    insert into t_mro_content
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="imgBanner != null" >
+        img_banner,
+      </if>
+      <if test="imgTop != null" >
+        img_top,
+      </if>
+      <if test="imgBottom != null" >
+        img_bottom,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="issue != null" >
+        issue,
+      </if>
+      <if test="bottomTitle != null" >
+        bottom_title,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgBanner != null" >
+        #{imgBanner,jdbcType=VARCHAR},
+      </if>
+      <if test="imgTop != null" >
+        #{imgTop,jdbcType=VARCHAR},
+      </if>
+      <if test="imgBottom != null" >
+        #{imgBottom,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=INTEGER},
+      </if>
+      <if test="bottomTitle != null" >
+        #{bottomTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.mro.model.MroContent" >
+    update t_mro_content
+    <set >
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgBanner != null" >
+        img_banner = #{imgBanner,jdbcType=VARCHAR},
+      </if>
+      <if test="imgTop != null" >
+        img_top = #{imgTop,jdbcType=VARCHAR},
+      </if>
+      <if test="imgBottom != null" >
+        img_bottom = #{imgBottom,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="issue != null" >
+        issue = #{issue,jdbcType=INTEGER},
+      </if>
+      <if test="bottomTitle != null" >
+        bottom_title = #{bottomTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="pers.jess.template.mro.model.MroContent" >
+    update t_mro_content
+    set area = #{area,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      img_banner = #{imgBanner,jdbcType=VARCHAR},
+      img_top = #{imgTop,jdbcType=VARCHAR},
+      img_bottom = #{imgBottom,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      issue = #{issue,jdbcType=INTEGER},
+      bottom_title = #{bottomTitle,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.mro.model.MroContent" >
+    update t_mro_content
+    set area = #{area,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      img_banner = #{imgBanner,jdbcType=VARCHAR},
+      img_top = #{imgTop,jdbcType=VARCHAR},
+      img_bottom = #{imgBottom,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      issue = #{issue,jdbcType=INTEGER},
+      bottom_title = #{bottomTitle,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

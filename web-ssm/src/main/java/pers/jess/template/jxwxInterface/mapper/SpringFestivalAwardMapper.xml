@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.jxwxInterface.dao.SpringFestivalAwardMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.jxwxInterface.model.SpringFestivalAward" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="award" property="award" jdbcType="VARCHAR" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="period" property="period" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, award, amount, num, period, version
+  </sql>
+  <select id="listAwards" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_springfestival_award
+    where period = #{period,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="pers.jess.template.jxwxInterface.model.SpringFestivalAward" >
+    insert into t_springfestival_award (id, award, amount, 
+      num, period, version
+      )
+    values (#{id,jdbcType=INTEGER}, #{award,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER}, #{period,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}
+      )
+  </insert>
+
+  <update id="updateAward" parameterType="pers.jess.template.jxwxInterface.model.SpringFestivalAward" >
+    update t_springfestival_award
+    set
+      num = #{num,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER}
+    where  id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

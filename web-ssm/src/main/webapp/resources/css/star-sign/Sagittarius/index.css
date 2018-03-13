@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white; opacity:.9;font-size: .5rem; 
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;opacity:.9;font-size: .5rem;
+}
+
+input:-ms-input-placeholder{
+    color: white;opacity:.9;font-size: .5rem;
+}
+
+input::-webkit-input-placeholder{
+    color: white;opacity:.9;font-size: .5rem;
+}
+body {
+    font-family:Helvetica;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.all {width: 100%;height: 17.75rem; overflow:hidden;position: absolute;}
+.all .alImg {width: 100%;height: 100%;position: absolute;}
+.all span {display: block;position: absolute;}
+.all .rule {width: 1.9rem;height: .5rem;margin-top: .33rem;margin-left: .2rem;}
+.all .getGift {width: 6.1rem;height: 2.7rem;margin-top: 11.8rem;margin-left: 1.9rem;}
+.all .noStar {width: 6rem;height: 1.2rem;margin-top: 15.4rem;margin-left: 1.7rem;}
+
+.loginDiv {width: 100%;height: 17.75rem; overflow:hidden;position: absolute;background: rgba(77,77,77,.7);display: none;}
+.loginDiv img {width: 40%;display: block;margin-top: 4rem;margin-left: 5.4rem;position: absolute;}
+.loginDiv .cha {display: block;position: absolute;width: .5rem;height: .5rem;font-size: .5rem;text-align: center;line-height: .5.1rem;border-radius: 50%;border:solid 1px black;margin-left: 8.2rem;margin-top: .1rem;}
+.loginDiv div {width: 90%;height: 4.5rem;border:solid 3px #F9D33F;border-radius: 5px;background: #FFFFFF;box-sizing: border-box;margin-left: 5%;position: absolute;margin-top: 6.4rem;}
+.loginDiv p {color: blue;font-size: .5rem;text-align: center;font-weight: bolder;margin-top: 1rem;}
+.loginDiv input {height: 1.2rem;background: rgba(196,193,243,.8);color: white;font-size: .4rem;border:0;margin-left: 7.5%;}
+.loginDiv .tel {width: 85%;margin-top: .5rem;}
+.loginDiv .num {width: 40%;margin-top: .3rem;}
+#code {width:40%;height: 1.2rem;display: block;border:0;margin-top: -1.2rem;margin-left: 52.5%;background: rgba(249,211,63,1);color: white;text-align: center;line-height: 1.2rem;font-size: .45rem;}
+.loginDiv .login {width: 85%;height: 1.2rem;display: block;background: rgb(88,71,233);color: white;font-size: .5rem;line-height: 1.2rem;text-align: center;margin-top: .5rem;margin-left: 7.5%}
+
+.rs {width: 100%;height: 17.75rem; overflow:hidden;position: absolute;background: rgba(77,77,77,.7);display: none;}
+.rs img {width: 85%;margin-left: 7.5%;margin-top: 5rem;}
+.rs span {width: 4.8rem;height: 1.5rem;display: block;position: absolute;margin-top: -1.6rem;margin-left: 2.55rem;}
+.rs .hide {width: 100%;height: 100%;box-sizing: border-box;background: rgb(255,255,255);}
+.rs .hiD {overflow: hidden; width: 6.06rem;height: .5rem;position: absolute;box-sizing: border-box;margin-top: -3.3rem;margin-left: 1.97rem;display: none}
+.rs .zi {width: .4rem;height: .5rem;background:rgb(255,255,255);margin-top: -1.58rem;margin-left: 2.5rem;position: absolute;font-size: 0.52rem;text-align: center;display: none}
+
+.rsGift {width: 100%;height: 17.75rem; overflow:hidden;position: absolute;background: rgba(77,77,77,.7);display: none;}
+.rsGift img {width: 85%;margin-left: 7.5%;margin-top: 2rem;}
+.rsGift .close2 {width: 3.5rem;height: 1.08rem;display: block;position: absolute;margin-top: -1.2rem;margin-left: 3.2rem;}
+
+.ruleDiv {width: 100%;height: 17.75rem; overflow:hidden;position: absolute;background: rgba(77,77,77,.7);display: none;}
+.ruleDiv img {width: 90%;height: 14.5rem; position: absolute;margin-left: 5%;margin-top: 1.5rem;}
+.ruleDiv .ruleText {width: 82%;margin-left: 9%;height: 11.5rem;position: absolute;margin-top: 2.5rem;overflow-y: scroll;overflow-x: hidden;}
+.ruleDiv p {font-size: .35rem;margin-top: .06rem;}
+.ruleDiv span {color: blue;}
+.ruleDiv .closeRule {display: block;width: 4.2rem;height: 1.3rem;position: absolute;margin-top: 14.2rem;margin-left: 2.9rem;}
+
+/*转发页面*/
+.fAll {width: 100%;height: 31.8rem;overflow: hidden;background: rgb(176,82,184);position: absolute;}
+.fAll img {width: 100%;position: absolute;}
+.fAll .zhong {width: 100%;margin-top: 8rem;}
+.fAll .find {width: 7.4rem;height: 1.1rem;position: absolute;display: block;margin-top: 11rem;margin-left: 1.3rem;}
+.ftc {width: 100%;height: 100%;position: fixed;background: rgba(77,77,77,.7);display: none;}
+.ftc .ftcI {width: 90%;position: absolute;margin-left: 5%;margin-top: 1.5rem;}
+.ftc .know {width: 3.2rem;height: .98rem;display: block;position: absolute;margin-top: 10.55rem;margin-left: 3.3rem;}
+
+
+
+
+
+
+
+
+
+

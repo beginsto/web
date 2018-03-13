@@ -1,0 +1,316 @@
+*{padding:0;margin:0;}
+img{width:100%;vertical-align:top;border:none;}
+body{font-family:"Helvetica"}
+a{text-decoration:none;}
+em,b{font-style:normal;}
+strong,b{font-weight:normal;}
+ul{list-style:none;}
+a{text-decoration:none;}
+a, button, input, textarea,label { -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+
+.wrap{
+    width: 100%;
+}
+.wrap .content{
+    width:100%;
+    background: #5CE3E5;
+    padding: 2rem 1.4rem 0rem 1.4rem;
+    box-sizing: border-box;
+}
+.content .content_div{
+    width: 100%;
+    height: 19rem;
+    background: #A7F4F4;
+    border-radius: 10px;
+}
+.content .content_div img{
+    margin-left: 7.63rem;
+    width: 7rem;
+    height: 4.36rem;
+}
+.content .content_div p{
+    color: #444444;
+    font-family: "微软雅黑";
+    font-size: 1rem;
+    min-height: 1.86rem;
+    line-height: 1.86rem;
+    padding-left: 1.43rem;
+    padding-right: 2rem;
+}
+.content .bottom{
+    padding: 2.36rem 0rem 2.8rem 0rem;
+}
+.bottom .begin_answer{
+    display: block;
+    background: #F88836;
+    height: 3.33rem;
+    line-height: 3.33rem;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 1.33rem;
+    font-family: "微软雅黑";
+}
+
+/*绑定提醒*/
+.mask{
+    width:100%;
+    overflow:hidden;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+.mask .mask_wrap{
+    padding: 15.56rem 3.53rem 15.56rem 3.53rem;
+}
+.mask_wrap .tip{
+    height: 13.33rem;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+.mask_wrap .tip p{
+    padding: 1.46rem 1.16rem 0 1.4rem;
+    color: #444444;
+    font-size: 1rem;
+    font-family: "微软雅黑";
+}
+.mask_wrap .tip .money{
+    color: red;
+}
+.mask_wrap .tip .now_bind{
+    display: block;
+    width: 9.6rem;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    text-align: center;
+    margin-left: 4.23rem;
+    margin-top: 1.4rem;
+    background: url("../../images/answer/nowbind.png") no-repeat;
+    background-size: 100% 100%;
+    color: #FFFFFF;
+    font-family: "微软雅黑";
+}
+
+/*绑定页面弹窗*/
+.mask01{
+    width:100%;
+    overflow:hidden;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+.mask01 .mask_wrap01{
+    padding: 15.56rem 3.53rem 15.56rem 3.53rem;
+}
+.mask_wrap01 .tip01{
+    /*height: 12rem;*/
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 1.46rem 1.4rem 0 1.4rem;
+}
+.tip01 .input01{
+    width: 92%;
+    border: #bfbfbf solid 1px;
+    border-radius: 4px;
+    height: 2.4rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tip01 .input02{
+    border: #bfbfbf solid 1px;
+    border-radius: 5px;
+    height: 2.4rem;
+    padding-left: 1rem;
+    width: 7.33rem;
+    float: left;
+}
+.bind_div{
+    clear: both;
+    padding: 1.66rem 0 1.6rem 2.86rem;
+}
+.input03{
+    display: block;
+    width: 6.26rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border: none;
+    color: #FFFFFF;
+    background: #FBAD05;
+    border-radius: 5px;
+    font-family: "微软雅黑";
+    text-align: center;
+    font-size: 1rem;
+    float: left;
+    margin-left: 0.4rem;
+}
+.mask_wrap01 .tip01 .now_bind01{
+    display: block;
+    width: 9.6rem;
+    line-height: 2.8rem;
+    text-align: center;
+    background: url("../../images/answer/nowbind.png") no-repeat;
+    background-size: 100% 100%;
+    color: #FFFFFF;
+    font-family: "微软雅黑";
+}
+
+/*绑定成功弹窗*/
+.mask02{
+    width:100%;
+    overflow:hidden;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+.mask02 .mask_wrap02{
+    padding: 19.46rem 3.5rem 19.46rem 3.5rem;
+}
+.mask_wrap02 .tip02{
+    height: 5.53rem;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+.mask_wrap02 .tip02 p{
+    padding: 1.46rem 1.46rem 0 1.5rem;
+    color: #444444;
+    font-family: "微软雅黑";
+}
+
+/*答题页*/
+.main_answer{
+    width: 100%;
+}
+.main_answer .content2{
+    width:100%;
+    background: #5CE3E5;
+    padding: 1.33rem 1.4rem 0rem 1.4rem;
+    box-sizing: border-box;
+}
+
+.content2 .content2_div{
+    background: url("../../images/answer/answer_bg.png") no-repeat;
+    background-size: 100% 100%;
+/*     height: 21.1rem; */
+}
+.content2_div p{
+    padding: 1rem 1rem 0 1rem;
+    color: #64320d;
+    font-family: "微软雅黑";
+    line-height: 1.66rem;
+    min-height: 5.26rem;
+}
+.content2_div ul{ padding-top: 0.5rem;}
+.content2_div ul li{ padding-left: 1.5rem; min-height: 3rem; margin-top: 0.2rem;}
+.content2_div ul li em{
+    color: #f88836;
+    font-size: 1.6rem;
+    padding: 0.33rem 1rem 0rem 0.4rem;
+    float: left;
+    font-weight: bold;
+}
+
+/********************修改部分*******************/
+.content2_div ul li .li_div{
+    display: inline-block;
+    line-height: 2.86rem;
+    vertical-align: top;
+}
+.content2_div ul li .li_div a{
+    display: block;
+    width: 11.8rem;
+    line-height: 2rem;
+/*     border: #f88836 solid 2px; */
+    border-radius: 13px;
+    padding-left: 2rem;
+    color: #64320d;
+    font-family: "微软雅黑";
+}
+.content2_div ul .active .li_div a{
+    background: #f88836;
+    color: #FFFFFF;
+}
+/********************修改部分*******************/
+
+.content2 .answer_tip{
+    margin-top: 1.33rem;
+    width: 22.1rem;
+    background: #bbf5f5;
+    border-radius: 10px;
+}
+.content2 .answer_tip p{
+    padding: 1.4rem 0.8rem 1.26rem 0.9rem;
+    font-family: "微软雅黑";
+    font-size: 1rem;
+    color: #64320d;
+    line-height: 1.56rem;
+}
+
+.content2 .bottom2{
+    padding: 2rem 0rem 1.66rem 0rem;
+}
+.bottom2 .begin_answer2{
+    display: block;
+    background: #F88836;
+    height: 3.33rem;
+    line-height: 3.33rem;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 1.33rem;
+    font-family: "微软雅黑";
+    padding: 0 4rem;
+    margin:auto;
+}
+
+/*答题错误弹窗*/
+.mask03{
+    width:100%;
+    overflow:hidden;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.mask03 .mask03_div{
+    margin-top: 16.33rem;
+    margin-left: 2.53rem;
+    width: 19.93rem;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.mask03_div p{
+    text-align: center;
+    padding: 2.2rem 0.83rem 0 1.26rem;
+    line-height: 1.6rem;
+    color: #444444;
+    font-family: "微软雅黑";
+}
+
+.mask03_div .sure{
+    padding: 1.86rem 5.2rem 2.33rem 5.2rem;
+}
+.sure .confirm{
+    display: block;
+    height: 2.7rem;
+    line-height: 2.7rem;
+    background: url("../../images/answer/nowbind.png") no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    font-family: "微软雅黑";
+    color: #FFFFFF;
+}
+

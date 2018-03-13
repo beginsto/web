@@ -1,0 +1,22 @@
+*{
+	margin:0;
+	padding:0;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+body {
+    font-family:Helvetica;
+}
+
+
+.all {width: 100%;overflow: hidden;position:absolute;}
+
+.all img {display:block;width:100%}
+
+.all .onep {height:8.4%;}
+.all .twop {height:26%;padding-bottom:1%;}
+.all .threep {height:26%;padding-bottom:1.8%;}
+.all .fourp {height:26%;}
+.all .fivep {height:12%;}

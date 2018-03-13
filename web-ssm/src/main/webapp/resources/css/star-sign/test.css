@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+li{ list-style:none }
+a{ color:#fff; display:block; text-decoration:none;}
+
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+    margin:0;
+    padding:0;
+}
+body {
+    font-family:Helvetica;
+    width:7.5rem;
+}
+.all {width: 100%;height:13rem;overflow: hidden;padding-bottom: 0.31rem;background:url(../../images/star-sign/allback.png);background-size:cover; width:7.5rem;}
+.top {width: 100%;}
+.top img{width: 90%;margin-left:0.4rem;}
+/*第二行图片*/
+.wenzi {width: 90%;position: relative;margin-left:0.4rem;}
+.wenzi img {width:100%;display:block;}
+.wenzi2 {width:70%;position:absolute;margin-left:2.1rem;margin-top:-1rem;}
+.wenzi2 p{color:white;font-weight:bolder;font-size:0.27rem;}
+
+/*规则*/
+.mask{position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display: none;overflow: hidden}
+.rule{z-index: 667;position: absolute;top: 4%;left: 88%;width: 110%;height: 12rem;overflow: hidden}
+.rule-left{width: 0.9rem;padding: 0.66rem;display: inline-block;margin-top: 45%;margin-left:0.7rem;}
+.rule-left img {display:block;margin-left:0.3rem;width:0.6rem;}
+.rule-right{display: inline-block;overflow-y:scroll;overflow-x:hidden;width: 6.04rem;height:12rem;position: absolute;left: 2.2rem;background:url('../../images/star-sign/rule.png');background-position-x:center;background-size:cover;}
+.rule-right p {font-size:0.3rem;color:white;margin-left:0.3rem;margin-right:0.2rem;}
+/*规则完*/
+
+.lunpan {width: 87%;position: relative;height:6.3rem;margin-top:0.6rem;margin-left:0.6rem;}
+.lunpan a{width:30%;display:inline-block;font-size:14px;position:absolute;left:4.4rem;}
+.lunpan .lun{width:100%;height:100%;display:block;position: absolute;}
+.lunpan .zhizhen{width:2.7rem;margin-left: 1.9rem;margin-top:1.84rem;position: absolute;-webkit-transform-origin: 50% 61%;}
+.foot {width:100%}
+.foot span {font-size:13px;margin-left:2rem;color:white;height:0.4rem;display:block;}
+
+.apple{ width:100%; height:0.5rem; overflow:hidden; margin:0.1rem auto; border:0px solid #1B96EE;text-align:center;}
+.apple p{ width:100%; height:0.5rem; line-height:0.5rem; text-indent:0.1px; color:white;font-size:14px;}
+
+.tiaozhan{ width:100%;}
+.tiaozhan img{width:50%;margin-top:0.1rem;margin-left:1.95rem;display:block;}
+
+.gift{width:100%;height:13.3rem;overflow:hidden;position:absolute;top:0rem;z-index:10;background:rgba(0,0,0,0.6);display:none;}
+.gift img{width: 70%;margin-top:1.6rem;margin-left:1.1rem;}
+
+/*.rules{width:100%;height:13.3rem;background:rgba(0,0,0,0.6);center;position:absolute;top:0rem;z-index:10;display:none;}
+.rules1{width:100%;height:11rem;background:url('../../images/star-sign/rule.png');background-position-x:center;background-size:cover;margin-top:1.15rem;}
+.rules1 #rulec {display:block;margin-left:6.7rem;width:1rem;height:1rem;}
+.rules1 p {font-size:16px;color:white;margin-left:0.3rem;margin-right:0.2rem;display:block;}*/
+
+.yanzheng{width:100%;height:13.3rem;overflow:hidden;position:absolute;top:0rem;z-index:10;background:rgba(0,0,0,0.6);display:none;}
+.yanzheng1{width:100%;height:6.3rem;overflow:hidden;position:absolute;top:4rem;z-index:10;background:rgba(0,0,0,0.6);
+    background:url('../../images/star-sign/yanzheng.png');background-position-x:center;background-size:cover;
+}
+.yanzheng1 span{font-size:20px;margin-left:1rem;margin-top:1.7rem;display:block;color:white;}
+.yanzheng1 input {border-radius: 0.1rem;border:1px solid #999;padding: 0.1rem 2%;}
+.yanzheng1 .num {width: 80%;margin-left: 7%;font-size: 0.3rem;}
+.yanzheng1 div {width:90%;font-size: 0.25rem;margin-left:5%;  margin-top: 0.3rem;display: flex;display: -webkit-flex;-webkit-flex-flow: row nowrap;-webkit-justify-content: space-between;-webkit-align-items: center;}
+.yanzheng1 div a {background-color:#386193;color:white;padding: 0.12rem 0;width: 37%;text-align: center;margin-right:4%; }
+.yanzheng1 div input {width: 50%;font-size: 0.3rem;margin-left:2%;}
+.yanzheng1 .now {width: 60%;margin-left: 20%;background-color: #386193;color:white;padding: 0.15rem 0;text-align: center;font-size: 0.25rem;margin-top: 0.3rem;}
+
+.bangding{width:100%;height:13.3rem;overflow:hidden;position:absolute;top:0rem;z-index:10;background:rgba(0,0,0,0.6);display:none;}
+.bangding img{width: 80%;margin-top:2rem;margin-left:0.9rem;}
+
+.nog{width:100%;height:13.3rem;overflow:hidden;position:absolute;top:0rem;z-index:10;background:rgba(0,0,0,0.6);display:none;text-align:center;}
+.nogift {width:100%;height:6rem;overflow:hidden;position:absolute;top:4rem;z-index:10;background:rgba(0,0,0,0.6);display:block;
+    background:url('../../images/star-sign/yanzheng.png');background-position-x:center;background-size:cover;
+}
+.nogift .nogift1 {width:100%;font-size:22px;color:white;display:block; margin-top:2.7rem;}
+
+/*转发页面*/
+.alll {width: 100%;height:19rem;background:rgba(0,0,0,0.6);}
+.alll img {width:100%;height:100%;display:block;}
+.alll span{width:4.71rem;height:0.74rem;margin-top:-14.2rem;margin-left:1.4rem;display:block;position:absolute;}
+.alll2{width:100%;height:13.3rem;overflow:hidden;position:absolute;top:0rem;z-index:10;background:rgba(0,0,0,0.6);display:none;}
+.alll2 img{width:80%;margin-top:0.8rem;margin-left:1rem;display:block;}
+.alll2-zi {width:3.2rem;height:1rem;display:block;position:relative;margin-top:-3.9rem;margin-left:2.7rem;}
+.alll2-zi p{font-size:0.25rem;color:white;display:block;z-index:-1;}
+.alll2-zi span {width:2.4rem;height:0.8rem;display:block;margin-top:1.6rem;margin-left:0.1rem;z-index:9999;position:relative;}
+
+/*好友页面*/
+.allf {width: 100%;height:13rem;overflow:hidden;padding-bottom: 0.31rem;background:url(../../images/star-sign/zhaohuan.png);background-size:cover;}
+.f1 {width:90%;height:10rem;overflow:hidden;background:url(../../images/star-sign/ziyuan16.png);background-size:100%;margin-top:4rem;margin-left:0.37rem;background-repeat:no-repeat;display:none;}
+.f1 .hyyz {width:37%;margin-left:2.1rem;display:block;margin-top:1rem;}
+.f1 #tel{width:80%;height:0.6rem;margin-left:0.7rem;margin-top:2rem;border-color:rgba(0,255,224,0.34);font-size:14pt;}
+.f1 #num {width:45%;height:0.6rem;margin-left:0.7rem;display:block;border-color:rgba(0,255,224,0.34);font-size:13pt;margin-top:0.3rem;}
+.f1 #tnum {width:32%;height:0.9rem;display:block;margin-top:-0.83rem;margin-left:4rem;background:url(../../images/star-sign/ziyuan4.png);background-size:cover;font-size:14px;color:white;text-align:center;line-height:1rem;}
+.f1 .ljyz {width:80%;margin-left:0.7rem;display:block;margin-top:0.3rem;}
+.f1 .cj {width:80%;margin-left:0.7rem;display:block;margin-top:0.3rem;}
+.f1 .fcj1 {width:80%;margin-left:0.7rem;display:block;margin-top:0.77rem;}
+
+/*好友验证成功*/
+.myyz {width:90%;height:10rem;overflow:hidden;background:url(../../images/star-sign/fritp.png);background-size:100%;margin-top:4rem;margin-left:0.37rem;background-repeat:no-repeat;display:block;}
+.myyz p{font-size:16px;color:white;text-align:center;margin-top:1.9rem; font-family:STHeiti; letter-spacing:0.01rem;padding-left:0.1rem;padding-right:0.1rem; }
+.myyz .tp {font-size:20px;margin-top:0.1rem;}
+.myyz span {display:block;height:0.2rem;}
+.myyz .cj0 {width:25%;margin-left:2.5rem;display:block;margin-top:0.5rem;}
+.myyz .cj {width:80%;margin-left:0.7rem;display:block;margin-top:0.4rem;}
+.myyz .cj1 {width:80%;margin-left:0.7rem;display:block;margin-top:0.43rem;}
+
+.ewm {width: 100%;height:13rem;overflow: hidden;padding-bottom: 0.25rem;position:absolute;top:0rem;z-index:10;background:rgba(0,0,0,0.6);display:none;}
+.ewm1 {width:100%;height:9rem; margin-top:2.5rem;overflow: hidden;background:url(../../images/star-sign/ewmb.png);background-size:cover;text-align:center;}
+.ewm1 #guan {width:20%;display:block;margin-left:6rem;}
+.ewm1 .tlt{font-size:22px;color:white;display:block;margin-top:0.4rem;}
+.ewm1 .content {font-size:17px;color:white;}
+.ewm1 span {color:red;font-family:STHeiti;}
+.ewm1 .kong {font-size:15px;}
+.ewm1 .ewmt {width:60%;display:block;margin-top:0.5rem;margin-left:1.5rem;}
+.ewm1 #kong {display:block;margin-left:6.35rem;margin-top:-1.39rem;width:1rem;height:1rem;}
+
+.fyzjg{width:100%;height:13.3rem;overflow:hidden;position:absolute;top:0rem;z-index:10;background:rgba(0,0,0,0.6);display:none;}
+.fyzjg1{width:100%;height:6.3rem;overflow:hidden;position:absolute;top:4rem;z-index:10;background:rgba(0,0,0,0.6);text-align:center;
+    background:url('../../images/star-sign/yanzheng.png');background-position-x:center;background-size:cover;
+}
+.fyzjg1 #jieguo{color:white;font-size:0.8rem;margin-top:2rem;}
+.fyzjg1 #jieguo1{color:white;font-size:0.4rem;margin-top:0.5rem;}

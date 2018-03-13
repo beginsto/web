@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.jess.template.signin.dao.SignInAwardMapper">
+  <resultMap id="BaseResultMap" type="pers.jess.template.signin.model.SignInAward">
+    <id column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="operate" jdbcType="INTEGER" property="operate" />
+    <result column="award" jdbcType="INTEGER" property="award" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userid, operate, award, createtime, version
+  </sql>
+  <select id="selectByParams" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_signin_awardinfo
+    where userid = #{userid,jdbcType=INTEGER}
+    and version = #{version,jdbcType=INTEGER}
+  </select>
+  <select id="queryRankWorld" resultType="pers.jess.template.signin.model.SignInAward" parameterType="java.util.Map">
+    select
+      a.userid,
+      a.createtime,
+      u.nickname,
+      u.headimg
+    from
+      t_signin_awardinfo  a
+    left join
+      t_signin_user u
+    on
+      (a.userid=u.id)
+    where
+      a.version =  #{version,jdbcType=INTEGER}
+    order by a.createtime asc
+  </select>
+  <select id="querySignList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_signin_awardinfo
+    where userid = #{userid,jdbcType=INTEGER}
+    order by version desc
+    limit 5
+  </select>
+  <select id="querySignListByVersion" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_signin_awardinfo
+    where version >= #{version,jdbcType=INTEGER}
+    order by version desc
+  </select>
+  <insert id="insert" parameterType="pers.jess.template.signin.model.SignInAward">
+    insert into t_signin_awardinfo (userid, operate, award, 
+      createtime, version)
+    values (#{userid,jdbcType=INTEGER}, #{operate,jdbcType=INTEGER}, #{award,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER})
+  </insert>
+</mapper>

@@ -1,0 +1,110 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+
+body {
+    font-family:Helvetica;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.all {width: 100%; overflow:hidden;position: absolute;background: rgb(177,61,59);}
+.yans {color: rgb(184,78,77);}
+.head {width: 100%;display: block;}
+.banner {width: 90%;margin-left: 5%;display: block;}
+.qiehuan {width: 94%;height: 1rem;border:0;margin-left: 3%;display:block;}
+.qiehuan span {float: left;margin-left:1%;border:0;height: 1rem;width: 32%;overflow:hidden;display:block;text-align: center;line-height: 1rem;font-size: 17px;color: white; box-sizing: border-box;
+  background: -webkit-linear-gradient(rgb(240,181,123), rgb(234,129,50)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(rgb(240,181,123), rgb(234,129,50)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(rgb(240,181,123), rgb(234,129,50)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(rgb(240,181,123), rgb(234,129,50)); /* 标准的语法 */
+}
+.turn-X{margin-left: 2%;}
+.turn-J{margin-left: 2%;}
+.page-1{width: 100%;display: block;margin-bottom: 1rem;}
+.page-2{width: 100%;display: none;margin-bottom: 1rem;}
+.page-3{width: 100%;display: none;margin-bottom: 1rem;}
+.pa {color: white;font-weight: bold;font-size: .4rem;text-align: center; margin-top: .3rem;font-family: cursive;}
+.da {width: 90%;height: 9rem; margin-left: 5%;margin-top: .2rem;background: rgba(255,255,255,1);border-radius: 10px;overflow: hidden;}
+.nhqX {width: 90%;margin-left: 5%;margin-top: .6rem;background: rgba(255,255,255,1);border-radius: 10px;overflow: hidden;}
+.da .turnT {width: 100%;height: 4.24rem;overflow: hidden;}
+.da .turnT ul {list-style:none;width: 60rem;}
+.da .turnT li {width: 9rem;height: 4.24rem;float: left;}
+.tu {width: 100%;height: 100%;}
+.tu img {width: 100%;height: 100%;}
+.piaoDiv {width: 90%;margin-left: 5%;height: 1rem;margin-top: .3rem;}
+.piaoDiv div {float: left;width: 49%;height: 100%;text-align: center;font-size: .4rem;color: white;line-height: 1rem;}
+.piaoNum {background: url('http://jxyd2.1860.cn:9090/jxwx_static/img/mro/left.png') center no-repeat;background-size: 100%;}
+.isGet {background: url('http://jxyd2.1860.cn:9090/jxwx_static/img/mro/right.png') center no-repeat;background-size: 100%;margin-left: 2%;}
+.hui {width: 95%;margin-left: 2.5%;box-sizing: border-box;border:0;background: rgba(77,77,77,.2);height: .07rem;margin-top: .3rem;}
+.df {font-size: .35rem;color: rgba(77,77,77,.6);margin-left: 2.5%;margin-top: .2rem;}
+.pjDiv {width: 90%;height: 2rem;margin-top: .3rem;margin-left: 5%;}
+.pjDiv div {float: left;width: 25%;border:0;height: 100%;text-align: center;}
+.pjDiv div img {width: 60%;}
+.spM .red {background: rgb(184,58,54);}
+.spM {position: absolute;height: .3rem;margin-top: -5.2rem;}
+.spM span  {float: left;display: block;width: .3rem;height: .3rem;border-radius: 50%;border:0;background: rgba(255,255,255,1);margin-left: .3rem;display:none}
+.spN {margin-left: 7rem;}
+.spX {margin-left: 6rem;}
+.spJ {margin-left: 5.5rem;}
+.ruleBtn {position: absolute;display: block;width: 15%;margin-top: 4.2rem;margin-left: .5rem;}
+.qiehuan .active {border:solid .01rem white;}
+.spShow{display: block}
+
+.ruleDiv {position: absolute;width: 100%;height: 100%;background: rgba(77,77,77,.7);display: none;z-index: 1}
+.ruleDiv img {width: 85%;margin-top: 2rem;margin-left: 7.5%;}
+.ruleDiv .rule {width: 75%;margin-left: 12.5%;height: 5rem;margin-top: -7.8rem;}
+.rule p {color: white;margin-top: .4rem;font-size: .35rem;}
+.closeRule {display: block;width: 1.35rem;height: 1.35rem;margin-left: 4.3rem;margin-top: .95rem;position: absolute;}
+
+.rs {position: fixed;width: 100%;height: 100%;background: rgba(77,77,77,.7);display: none;z-index:  1;}
+.rs img {width: 80%;margin-top: 2rem;margin-left: 10%;}
+.rs .closeRs {z-index: 2; display: block;position: absolute;width: 1.35rem;height: 1.35rem;top: 7.35rem;margin-left: 4.3rem;}
+.fow {display: block;position: absolute;width: 6.15rem;height: 1.05rem;top: 5.3rem;margin-left: 1.9rem;}
+.forw {width: 100%;height: 100%;position: fixed;background: rgba(77,77,77,.7);display: none;}
+.forw img {width: 90%;position: absolute;margin-top: 1rem;margin-left: -5%;}
+.forw .guan{width: 2.35rem;display: block;position: absolute;height: .75rem;margin-top: 12.2rem;margin-left: 3.7rem;}
+
+.allN {width: 100%;height: 17.7rem; overflow:hidden;position: absolute;background: rgb(177,61,59);}
+.tcAll {height: 9.6rem;}
+.spTc {margin-top: -5.5rem;}
+.p1 {color:rgb(177,61,59);  font-size: .35rem;text-align: center;margin-top: .2rem;margin-bottom: .2rem;font-weight: bolder;}
+.nhq-1 {width: 90%;margin-left: 5%;}
+.p2 {font-size: .35rem;padding-left: 3%;padding-right: 3%;margin-top: .2rem;color:rgb(177,61,59);}
+.p2 span {font-family: cursive;font-weight: bolder; }
+.nhq-2 {width: 90%;margin-left: 5%;margin-top: .2rem;}
+.p3 {font-size: .35rem;text-align: center;margin-top: .3rem;margin-bottom: .6rem;font-family: cursive;color:rgb(177,61,59);}
+.p4 {font-size: .35rem;text-align: center;margin-top: .2rem;font-family: cursive;color:rgb(177,61,59);}
+
+.tc {width: 90%;height: 3rem;margin-top: .3rem;margin-left: 5%;}
+.tc textarea {width: 100%;height: 100%;text-align: center;}
+.sub {display: block;width: 90%;height: 1.2rem;font-size: .5rem;color: white;line-height: 1.2rem;background: rgb(182,59,55);border-radius: 5px;margin-top: .4rem;margin-left: 5%;text-align: center;}
+
+.tcRs {position: fixed;width: 100%;height: 100%;background: rgba(77,77,77,.7);display: none;z-index: 1}
+.tcRs .div1 {width: 80%;margin-top: 4rem;margin-left: 10%;background: rgb(182,59,55);border-radius: 5px;height: 3rem;position: absolute;}
+.div1 div {width: 98%;height: 95%;border-radius: 5px;border:solid 2px white;margin-left: 1%;margin-top: 1%;box-sizing: border-box;position: absolute;}
+.div1 div p {font-size: .4rem;line-height: 2.6rem;text-align: center;color: white;}
+
+    #cont::-webkit-input-placeholder{
+      height: 3rem;padding-top: 1rem;
+    }    /* 使用webkit内核的浏览器 */
+    #cont:-moz-placeholder{
+      height: 3rem;padding-top: 1rem;
+    }                  /* Firefox版本4-18 */
+    #cont::-moz-placeholder{
+      height: 3rem;padding-top: 1rem;
+    }                  /* Firefox版本19+ */
+    #cont:-ms-input-placeholder{
+      height: 3rem;padding-top: 1rem;
+    }

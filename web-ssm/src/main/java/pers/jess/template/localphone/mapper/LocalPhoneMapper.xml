@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.jess.template.localphone.dao.LocalPhoneMapper">
+  <resultMap id="BaseResultMap" type="pers.jess.template.localphone.model.LocalPhone">
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+  </resultMap>
+
+  <select id="quaryByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+      phone
+    from
+      t_local_phone
+    where
+      phone = #{phone,jdbcType=VARCHAR}
+  </select>
+</mapper>

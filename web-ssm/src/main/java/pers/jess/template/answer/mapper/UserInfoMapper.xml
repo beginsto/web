@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.answer.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.answer.model.UserInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="issue" property="issue" jdbcType="VARCHAR" />
+    <result column="ans_zh" property="ansZh" jdbcType="INTEGER" />
+    <result column="ans_rig_zh" property="ansRigZh" jdbcType="INTEGER" />
+    <result column="ans_bus" property="ansBus" jdbcType="INTEGER" />
+    <result column="ans_rig_bus" property="ansRigBus" jdbcType="INTEGER" />
+    <result column="ans_gov" property="ansGov" jdbcType="INTEGER" />
+    <result column="ans_rig_gov" property="ansRigGov" jdbcType="INTEGER" />
+    <result column="nextQues" property="nextques" jdbcType="INTEGER" />
+    <result column="lastTime" property="lasttime" jdbcType="TIMESTAMP" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, issue, ans_zh, ans_rig_zh, ans_bus, ans_rig_bus, ans_gov, ans_rig_gov, 
+    nextQues, lastTime, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_answer_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryUserInfoByParams" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_answer_info
+    where userid = #{userid,jdbcType=INTEGER}
+    and issue = #{issue,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_answer_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.answer.model.UserInfo" >
+    insert into t_answer_info (id, userId, issue, 
+      ans_zh, ans_rig_zh, ans_bus, 
+      ans_rig_bus, ans_gov, ans_rig_gov, 
+      nextQues, lastTime, createTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{issue,jdbcType=VARCHAR}, 
+      #{ansZh,jdbcType=INTEGER}, #{ansRigZh,jdbcType=INTEGER}, #{ansBus,jdbcType=INTEGER}, 
+      #{ansRigBus,jdbcType=INTEGER}, #{ansGov,jdbcType=INTEGER}, #{ansRigGov,jdbcType=INTEGER}, 
+      #{nextques,jdbcType=INTEGER}, #{lasttime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertUserInfo" parameterType="pers.jess.template.answer.model.UserInfo" >
+    insert into t_answer_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="issue != null" >
+        issue,
+      </if>
+      <if test="ansZh != null" >
+        ans_zh,
+      </if>
+      <if test="ansRigZh != null" >
+        ans_rig_zh,
+      </if>
+      <if test="ansBus != null" >
+        ans_bus,
+      </if>
+      <if test="ansRigBus != null" >
+        ans_rig_bus,
+      </if>
+      <if test="ansGov != null" >
+        ans_gov,
+      </if>
+      <if test="ansRigGov != null" >
+        ans_rig_gov,
+      </if>
+      <if test="nextques != null" >
+        nextQues,
+      </if>
+      <if test="lasttime != null" >
+        lastTime,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=VARCHAR},
+      </if>
+      <if test="ansZh != null" >
+        #{ansZh,jdbcType=INTEGER},
+      </if>
+      <if test="ansRigZh != null" >
+        #{ansRigZh,jdbcType=INTEGER},
+      </if>
+      <if test="ansBus != null" >
+        #{ansBus,jdbcType=INTEGER},
+      </if>
+      <if test="ansRigBus != null" >
+        #{ansRigBus,jdbcType=INTEGER},
+      </if>
+      <if test="ansGov != null" >
+        #{ansGov,jdbcType=INTEGER},
+      </if>
+      <if test="ansRigGov != null" >
+        #{ansRigGov,jdbcType=INTEGER},
+      </if>
+      <if test="nextques != null" >
+        #{nextques,jdbcType=INTEGER},
+      </if>
+      <if test="lasttime != null" >
+        #{lasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.answer.model.UserInfo" >
+    update t_answer_info
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="issue != null" >
+        issue = #{issue,jdbcType=VARCHAR},
+      </if>
+      <if test="ansZh != null" >
+        ans_zh = #{ansZh,jdbcType=INTEGER},
+      </if>
+      <if test="ansRigZh != null" >
+        ans_rig_zh = #{ansRigZh,jdbcType=INTEGER},
+      </if>
+      <if test="ansBus != null" >
+        ans_bus = #{ansBus,jdbcType=INTEGER},
+      </if>
+      <if test="ansRigBus != null" >
+        ans_rig_bus = #{ansRigBus,jdbcType=INTEGER},
+      </if>
+      <if test="ansGov != null" >
+        ans_gov = #{ansGov,jdbcType=INTEGER},
+      </if>
+      <if test="ansRigGov != null" >
+        ans_rig_gov = #{ansRigGov,jdbcType=INTEGER},
+      </if>
+      <if test="nextques != null" >
+        nextQues = #{nextques,jdbcType=INTEGER},
+      </if>
+      <if test="lasttime != null" >
+        lastTime = #{lasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.answer.model.UserInfo" >
+    update t_answer_info
+    set userId = #{userid,jdbcType=INTEGER},
+      issue = #{issue,jdbcType=VARCHAR},
+      ans_zh = #{ansZh,jdbcType=INTEGER},
+      ans_rig_zh = #{ansRigZh,jdbcType=INTEGER},
+      ans_bus = #{ansBus,jdbcType=INTEGER},
+      ans_rig_bus = #{ansRigBus,jdbcType=INTEGER},
+      ans_gov = #{ansGov,jdbcType=INTEGER},
+      ans_rig_gov = #{ansRigGov,jdbcType=INTEGER},
+      nextQues = #{nextques,jdbcType=INTEGER},
+      lastTime = #{lasttime,jdbcType=TIMESTAMP},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.identifyCode.dao.IdentifyCodeMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.identifyCode.model.IdentifyCode" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="context" property="context" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="isUsed" property="isused" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mobile, context, createTime, isUsed
+  </sql>
+  <select id="queryByParams" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+      <include refid="Base_Column_List" />
+    from
+      t_identify_code
+    where
+      mobile = #{mobile,jdbcType=VARCHAR}
+    AND
+      context = #{context,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_identify_code
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_identify_code
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.identifyCode.model.IdentifyCode" >
+    insert into t_identify_code (id, mobile, context, 
+      createTime, isUsed)
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{isused,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.identifyCode.model.IdentifyCode" >
+    insert into t_identify_code
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="context != null" >
+        context,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="isused != null" >
+        isUsed,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null" >
+        #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isused != null" >
+        #{isused,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.identifyCode.model.IdentifyCode" >
+    update t_identify_code
+    <set >
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null" >
+        context = #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isused != null" >
+        isUsed = #{isused,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.identifyCode.model.IdentifyCode" >
+    update t_identify_code
+    set mobile = #{mobile,jdbcType=VARCHAR},
+      context = #{context,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      isUsed = #{isused,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

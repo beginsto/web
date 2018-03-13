@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.ad.dao.AdOrganizationMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.ad.model.AdOrganization" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userid, org_name
+  </sql>
+  <select id="listByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select <include refid="Base_Column_List"/>
+    from t_ad_manager_org
+    where userid =  #{userid,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="pers.jess.template.ad.model.AdOrganization" >
+    insert into t_ad_manager_org (id, userid, org_name
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{orgName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.ad.model.AdOrganization" >
+    insert into t_ad_manager_org
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="orgName != null" >
+        org_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.answer.dao.QuestionMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.answer.model.Question" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="question" property="question" jdbcType="VARCHAR" />
+    <result column="quesType" property="questype" jdbcType="VARCHAR" />
+    <result column="refrenceRes" property="refrenceres" jdbcType="VARCHAR" />
+    <result column="answerRight" property="answerright" jdbcType="VARCHAR" />
+    <result column="answer_A" property="answerA" jdbcType="VARCHAR" />
+    <result column="answer_B" property="answerB" jdbcType="VARCHAR" />
+    <result column="answer_C" property="answerC" jdbcType="VARCHAR" />
+    <result column="answer_D" property="answerD" jdbcType="VARCHAR" />
+    <result column="answer_E" property="answerE" jdbcType="VARCHAR" />
+    <result column="answer_F" property="answerF" jdbcType="VARCHAR" />
+    <result column="businessType" property="businesstype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, question, quesType, refrenceRes, answerRight, answer_A, answer_B, answer_C, answer_D, 
+    answer_E, answer_F, businessType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_answer_ques
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_answer_ques
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.answer.model.Question" >
+    insert into t_answer_ques (id, question, quesType, 
+      refrenceRes, answerRight, answer_A, 
+      answer_B, answer_C, answer_D, 
+      answer_E, answer_F, businessType
+      )
+    values (#{id,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{questype,jdbcType=VARCHAR}, 
+      #{refrenceres,jdbcType=VARCHAR}, #{answerright,jdbcType=VARCHAR}, #{answerA,jdbcType=VARCHAR}, 
+      #{answerB,jdbcType=VARCHAR}, #{answerC,jdbcType=VARCHAR}, #{answerD,jdbcType=VARCHAR}, 
+      #{answerE,jdbcType=VARCHAR}, #{answerF,jdbcType=VARCHAR}, #{businesstype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.answer.model.Question" >
+    insert into t_answer_ques
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="question != null" >
+        question,
+      </if>
+      <if test="questype != null" >
+        quesType,
+      </if>
+      <if test="refrenceres != null" >
+        refrenceRes,
+      </if>
+      <if test="answerright != null" >
+        answerRight,
+      </if>
+      <if test="answerA != null" >
+        answer_A,
+      </if>
+      <if test="answerB != null" >
+        answer_B,
+      </if>
+      <if test="answerC != null" >
+        answer_C,
+      </if>
+      <if test="answerD != null" >
+        answer_D,
+      </if>
+      <if test="answerE != null" >
+        answer_E,
+      </if>
+      <if test="answerF != null" >
+        answer_F,
+      </if>
+      <if test="businesstype != null" >
+        businessType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="question != null" >
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="questype != null" >
+        #{questype,jdbcType=VARCHAR},
+      </if>
+      <if test="refrenceres != null" >
+        #{refrenceres,jdbcType=VARCHAR},
+      </if>
+      <if test="answerright != null" >
+        #{answerright,jdbcType=VARCHAR},
+      </if>
+      <if test="answerA != null" >
+        #{answerA,jdbcType=VARCHAR},
+      </if>
+      <if test="answerB != null" >
+        #{answerB,jdbcType=VARCHAR},
+      </if>
+      <if test="answerC != null" >
+        #{answerC,jdbcType=VARCHAR},
+      </if>
+      <if test="answerD != null" >
+        #{answerD,jdbcType=VARCHAR},
+      </if>
+      <if test="answerE != null" >
+        #{answerE,jdbcType=VARCHAR},
+      </if>
+      <if test="answerF != null" >
+        #{answerF,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null" >
+        #{businesstype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.answer.model.Question" >
+    update t_answer_ques
+    <set >
+      <if test="question != null" >
+        question = #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="questype != null" >
+        quesType = #{questype,jdbcType=VARCHAR},
+      </if>
+      <if test="refrenceres != null" >
+        refrenceRes = #{refrenceres,jdbcType=VARCHAR},
+      </if>
+      <if test="answerright != null" >
+        answerRight = #{answerright,jdbcType=VARCHAR},
+      </if>
+      <if test="answerA != null" >
+        answer_A = #{answerA,jdbcType=VARCHAR},
+      </if>
+      <if test="answerB != null" >
+        answer_B = #{answerB,jdbcType=VARCHAR},
+      </if>
+      <if test="answerC != null" >
+        answer_C = #{answerC,jdbcType=VARCHAR},
+      </if>
+      <if test="answerD != null" >
+        answer_D = #{answerD,jdbcType=VARCHAR},
+      </if>
+      <if test="answerE != null" >
+        answer_E = #{answerE,jdbcType=VARCHAR},
+      </if>
+      <if test="answerF != null" >
+        answer_F = #{answerF,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null" >
+        businessType = #{businesstype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.answer.model.Question" >
+    update t_answer_ques
+    set question = #{question,jdbcType=VARCHAR},
+      quesType = #{questype,jdbcType=VARCHAR},
+      refrenceRes = #{refrenceres,jdbcType=VARCHAR},
+      answerRight = #{answerright,jdbcType=VARCHAR},
+      answer_A = #{answerA,jdbcType=VARCHAR},
+      answer_B = #{answerB,jdbcType=VARCHAR},
+      answer_C = #{answerC,jdbcType=VARCHAR},
+      answer_D = #{answerD,jdbcType=VARCHAR},
+      answer_E = #{answerE,jdbcType=VARCHAR},
+      answer_F = #{answerF,jdbcType=VARCHAR},
+      businessType = #{businesstype,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,32 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 用于移动端 -->
+    <!-- 屏幕缩放控制 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+    <!-- 苹果导航栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yzes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>首页</title>
+    <style>
+        body{
+            margin: 0 auto;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+
+    </style>
+    <script>
+        window.onresize = function () {
+            var s = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = s / 25 + "px";
+        };
+        window.onresize();
+    </script>
+</head>
+<body>
+    您来晚了，活动已结束...
+</body>
+</html>

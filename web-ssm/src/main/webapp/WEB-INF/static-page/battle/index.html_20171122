@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<meta name="format-detection" content="email=no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/flexible.js"></script>
+	<script src="js/index.js"></script>
+	<title>四大战役-岁末年初四大战役专项行动（英雄榜）</title>
+</head>
+<body>
+	<div class="all">
+		<img class="alImg" src="image/all.png"/>
+		<div class="cityList">
+			<ul class="ul1">
+				<li><img id="jh" src="image/jh.png"/></li>
+				<li><img id="js" src="image/js.png"/></li>
+				<li><img id="ph" src="image/ph.png"/></li>
+			</ul>
+			<ul class="ul2">
+				<li><img id="hy" src="image/hy.png"/></li>
+				<li><img id="hn" src="image/hn.png"/></li>
+				<li><img id="tx" src="image/tx.png"/></li>
+			</ul>
+		</div>
+		<div class="groupList">
+			<div class="change">
+				<img src="image/qiehuan.png"/>
+				<span id="oneOne" class="sp1"><img src="image/14yes.png"/></span>
+				<span id="twoTwo" class="sp2"><img src="image/58no.png"/></span>
+				<span id="threeTh" class="sp3"><img src="image/912no.png"/></span>
+			</div>
+			<div class="page1 content">
+				<div id="oneG" class="oneG">
+					<img src="image/1g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="twoG" class="oneG">
+					<img src="image/2g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="threeG" class="oneG">
+					<img src="image/3g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="fourG" class="oneG">
+					<img src="image/4g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+			</div>
+			<div class="page2 content">
+				<div id="fiveG" class="oneG">
+					<img src="image/5g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="sixG" class="oneG">
+					<img src="image/6g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="sevenG" class="oneG">
+					<img src="image/7g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="eightG" class="oneG">
+					<img src="image/8g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+			</div>
+			<div class="page3 content">
+				<div id="nineG" class="oneG">
+					<img src="image/9g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="tenG" class="oneG">
+					<img src="image/10g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="elevenG" class="oneG">
+					<img src="image/11g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+				<div id="tweG" class="oneG">
+					<img src="image/12g.png"/>
+					<!--<span class="spOne1 sp"><img src="image/test.png"/></span>
+					<span class="spOne2 sp"><img src="image/test.png"/></span>
+					<span class="spOne3 sp"><img src="image/test.png"/></span>-->
+				</div>
+			</div>			
+		</div>
+	</div>
+</body>
+</html>

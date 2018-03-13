@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<meta name="format-detection" content="email=no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/flexible.js"></script>
+	<script src="js/mall.js"></script>
+	<title>双11</title>
+</head>
+<body>
+	<div class="allMall">
+		<div class="mallDiv">
+			<p>门店查询</p>
+			<div class="searchDiv" >
+				<select id="cityList" class="searchCity">
+					<option value="">&nbsp;&nbsp;请选择地市</option>
+					<option value="嘉禾">嘉禾</option>
+					<option value="嘉善">嘉善</option>
+					<option value="海宁">海宁</option>
+					<option value="海盐">海盐</option>
+					<option value="平湖">平湖</option>
+					<option value="桐乡">桐乡</option>
+				</select>
+				<select id="areaList" class="searchArea">
+					<option value="">&nbsp;&nbsp;请选择区域</option>
+				</select>
+				<input type="text" name="text" class="text" id="searchKey" onfocus="this.value=''" onblur="if(this.value==''){this.value=''}"  placeholder="请输入关键字" />
+				<span id="search">立即搜索</span>
+			</div>
+			<div class="tableDiv">
+				<table class="tableList"cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="th1 headth h1" >县市</td>
+						<td class="th2 headth h2" >区域</td>
+						<td class="th3 headth h3" >渠道名称</td>
+						<td class="th4 headth h4" >渠道地址</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="format-detection" content="email=no"/>
+    <script src="js/flexible.js"></script>
+    <link href="css/friend.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <title>绑定手机号码</title>
+</head>
+<body>
+<div class="swiper-container" id="swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="slideOne slideClear">
+                <div class="slideOneTu">
+                </div>
+                <p class="nameP">To:<span id="name">全体嘉兴移动粉丝们</span></p>
+                <div class="slideOneBg"></div>
+                <div class="next"></div>
+                <img class="shou" src="http://wzyd11.gotone.net.cn:9000/wzyd5_static/time-machine/shou.png"/>
+                <
+                <div class="context" style="background-color: #CC4642;width:80%;left:10%;color:#fff;height:1.2rem;line-height: 1.2rem;text-align: center;font-size: .5rem">
+                   还未关联手机？点击立即关联
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+<script src="js/friend.js"></script>
+<script>
+    (function ($) {
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    })(jQuery);
+
+    var openid = $.getUrlParam('openid');
+    $('.context').click(function () {
+        window.location.href="http://jxyd.1860.cn/app/bindMobile/index?openid="+openid;
+    })
+</script>
+</html>

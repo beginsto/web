@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.gift.dao.GiftOnlineMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.gift.model.GiftOnline" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code_num" property="codeNum" jdbcType="VARCHAR" />
+    <result column="codedesc" property="codedesc" jdbcType="VARCHAR" />
+    <result column="code_id" property="codeId" jdbcType="VARCHAR" />
+    <result column="is_used" property="isUsed" jdbcType="INTEGER" />
+    <result column="use_time" property="useTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code_num, codedesc, code_id, is_used, use_time
+  </sql>
+
+  <select id="queryByCode" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from t_gift_online
+    where  code_num = #{codeNum,jdbcType=VARCHAR}
+  </select>
+
+  <update id="updateByCode" parameterType="pers.jess.template.gift.model.GiftOnline" >
+    update
+      t_gift_online
+    SET
+      code_id = #{codeId,jdbcType=VARCHAR},
+      codedesc = #{codedesc,jdbcType=VARCHAR},
+      is_used = #{isUsed,jdbcType=INTEGER},
+      use_time = #{useTime,jdbcType=TIMESTAMP}
+    where
+      code_num = #{codeNum,jdbcType=VARCHAR}
+  </update>
+
+  <select id="queryCount" resultType="java.lang.Integer" parameterType="java.lang.String">
+    select
+      count(*)
+    from
+      t_gift_online
+    where
+      codedesc = #{codedesc,jdbcType=VARCHAR}
+  </select>
+
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_gift_online
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_gift_online
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.gift.model.GiftOnline" >
+    insert into t_gift_online (id, code_num, codedesc, 
+      code_id, is_used, use_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{codeNum,jdbcType=VARCHAR}, #{codedesc,jdbcType=VARCHAR}, 
+      #{codeId,jdbcType=VARCHAR}, #{isUsed,jdbcType=INTEGER}, #{useTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.gift.model.GiftOnline" >
+    insert into t_gift_online
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="codeNum != null" >
+        code_num,
+      </if>
+      <if test="codedesc != null" >
+        codedesc,
+      </if>
+      <if test="codeId != null" >
+        code_id,
+      </if>
+      <if test="isUsed != null" >
+        is_used,
+      </if>
+      <if test="useTime != null" >
+        use_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="codeNum != null" >
+        #{codeNum,jdbcType=VARCHAR},
+      </if>
+      <if test="codedesc != null" >
+        #{codedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="codeId != null" >
+        #{codeId,jdbcType=VARCHAR},
+      </if>
+      <if test="isUsed != null" >
+        #{isUsed,jdbcType=INTEGER},
+      </if>
+      <if test="useTime != null" >
+        #{useTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.gift.model.GiftOnline" >
+    update t_gift_online
+    <set >
+      <if test="codeNum != null" >
+        code_num = #{codeNum,jdbcType=VARCHAR},
+      </if>
+      <if test="codedesc != null" >
+        codedesc = #{codedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="codeId != null" >
+        code_id = #{codeId,jdbcType=VARCHAR},
+      </if>
+      <if test="isUsed != null" >
+        is_used = #{isUsed,jdbcType=INTEGER},
+      </if>
+      <if test="useTime != null" >
+        use_time = #{useTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.gift.model.GiftOnline" >
+    update t_gift_online
+    set code_num = #{codeNum,jdbcType=VARCHAR},
+      codedesc = #{codedesc,jdbcType=VARCHAR},
+      code_id = #{codeId,jdbcType=VARCHAR},
+      is_used = #{isUsed,jdbcType=INTEGER},
+      use_time = #{useTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

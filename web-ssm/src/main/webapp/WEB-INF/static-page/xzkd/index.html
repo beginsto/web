@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<meta name="format-detection" content="email=no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/rem2.js"></script>
+	<script src="js/index.js"></script>
+	<script src="sms.js"></script>
+
+	<title>入网抽奖</title>
+</head>
+<body>
+	<div class="all">
+		<div class="context">
+			<div class="head"></div>
+			<img id="zz" src="image/zz.png">
+			<div class="rule">
+				<!-- <div class="ruleWord">
+				<p class="p1">1、活动时间:<span>2017年9月20日-2017年12月31日</span></p>
+				<p class="p2">2、活动内容:活动期间客户新入网、新装宽带可参与抽奖，抽奖机会当日起10日内有效，过期失效。人人有奖，每位用户仅能参与一次。</p>
+				<p class="p2">3、抽奖所得话费券需在<span>“浙江移动手机营业厅-我的-话费券”</span>页面查询并兑换，话费券不可拆分，不可转赠，不可兑换现金，兑换成功会自动冲入您的个人通信馈赠金账户，话费卷有效期为到账后次日起90天，请在有效期内兑换使用，过期失效。</p>
+				<p class="p2">4、活动奖励话费均分3个月等额赠送。</p>
+				<p class="p2">5、活动奖励流量以赠送客户流量闪充包形式实现，赠送流量为省内2/3/4G流量，当日有效，次日作废，不可转赠。</p>
+				<p class="p2">6、奖品及中奖概率如下：</p>
+				<p class="p3">(1)3元话费券，分3个月返还，每月1元，中奖概率30%;</p>
+				<p class="p3">(2)3元流量闪充包，中奖概率30%;</p>
+				<p class="p3">(3)6元话费券，分3个月返还，每月2元，中奖概率13%;</p>
+				<p class="p3">(4)6元流量闪充包，中奖概率13%;</p>
+				<p class="p3">(5)15元话费券，分3个月返还，每月5元，中奖概率9%;</p>
+				<p class="p3">(6)30元话费券，分3个月返还，每月10元，中奖概率4%;</p>
+				<p class="p3">(7)60元话费券，分3个月返还，每月20元，中奖概率0.9%;</p>
+				<p class="p3">(8)150元话费券，分3个月返还，每月50元，中奖概率0.1%;</p>
+				<p class="p2">7、本活动面向嘉兴移动实名用户，外地用户、携号转网用户不能参加。</p>
+				<p class="p2">8、不尽之处详情10086</p>
+				<p class="p2">&nbsp;</p>
+				</div> -->
+			</div>
+		</div>
+		<input type="hidden" id="validate_code">
+		<input type="hidden" id="phone">
+		<div class="hide"></div>
+		<div class="gift"><p>恭喜您获得<span id="getGift">6元流量闪充包</span>奖励</p><span id="closeGift"></span></div>
+		<div class="login">
+			<input class="tel" type="tel" id="sms-tel" name="tel" placeholder="请输入手机号码"/>
+			<input class="code" type="num" name="num" placeholder="请输入验证码">
+			<span id="yzm" onclick="sms()" class="yzm">获取验证码</span>
+			<img id="tj" src="image/tj.png"/>
+		</div>
+		<div class="nogift"><span id="closenoGift" ></span></div>
+	</div>
+</body>
+</html>

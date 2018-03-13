@@ -1,0 +1,70 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+:-moz-placeholder { /*Mozilla Firefox 4 to 18 */
+    opacity:.9;font-size: .4rem; 
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    opacity:.9;font-size: .4rem;
+}
+
+input:-ms-input-placeholder{
+    opacity:.9;font-size: .4rem;
+}
+
+input::-webkit-input-placeholder{
+    opacity:.9;font-size: .4rem;
+}
+body {
+    font-family:Helvetica;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+select {
+     appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+}
+
+.all {width: 100%;height: 17.77rem; overflow:hidden;position: absolute;background: rgb(50,139,207);}
+.all .alImg {width: 100%;position: absolute;}
+.lo {position: absolute;width: 83%;height: 5.05rem;box-sizing: border-box;margin-top: 5.25rem;margin-left: 8.5%;}
+.lo div {float: left;height: 100%;box-sizing: border-box;position: absolute;}
+.lo .tit {width: 28%;}
+.tit span {width: 90%;height: 1.1rem;display: block;background: rgb(241,241,241);border-radius: 2px;margin-left: 5%;font-size: .35rem;line-height: 1.1rem;text-align: center;}
+.tit .sp1 {margin-top: .8rem;}
+.tit .sp2 {margin-top: 1.1rem;}
+
+.lo .loginDiv {width: 72%;margin-left: 28%;}
+.loginDiv .tm {width: 98%;height: 1.1rem;background: rgb(241,241,241);display: block;margin-top: .8rem;border:0;border-radius: 2px;}
+.tm span {width: 82%;height: 100%;display: block;line-height: 1.1rem;font-size: .35rem;position: absolute;text-overflow: ellipsis;overflow: hidden;cursor: pointer; }
+.tm .btn {width: 13%;margin-left: 84%;margin-top: .16rem;}
+.loginDiv .city {box-sizing: border-box;width: 98%;height: 1.1rem;border: solid 1px rgb(243,152,0);color: rgba(77,77,77,.8);font-size: .55rem;margin-top: .8rem; border-radius: 4px;position: absolute;opacity: 0;}
+.loginDiv .num {width: 98%;height: 1.1rem;line-height:1.1rem;border:0;background: rgb(241,241,241);font-size: .35rem;margin-top: 3rem;border-radius: 2px; }
+
+.login {width: 83%;height: 1.2rem;position: absolute;display: block;margin-top: 11.75rem;margin-left: 8.5%;}
+
+.rsS {position: absolute;background:rgba(77,77,77,.7);width: 100%;height: 17.77rem; overflow:hidden;display: none; }
+.rsS .na{width: 86%;height: 5rem;border-radius: 5px;margin-left: 7%;margin-top: 3rem;background: white;}
+.na p {font-size: .45rem;padding-left: .3rem;padding-right: .3rem;padding-top: 1.2rem;}
+.rsS .close {width: 86%;height: 1.2rem;border-radius: 4px;margin-left: 7%;display: block;background: rgba(63,169,251,.8);margin-top: .7rem;font-size: .45rem;color: white;text-align: center;line-height: 1.2rem;}
+.newNum {color: rgb(1,161,255);}
+
+.rsF {position: absolute;background:rgba(77,77,77,.7);width: 100%;height: 17.77rem; overflow:hidden;display: none; }
+.rsF .fna{width: 86%;height: 5rem;border-radius: 5px;margin-left: 7%;margin-top: 3rem;background: white;}
+.rsF span {display: block;height: 1.2rem;border-radius: 4px;background: rgba(63,169,251,.8);width: 86%;font-size: .45rem;color: white;text-align: center;line-height: 1.2rem;}
+.rsF .sp1 {margin-top: .7rem;margin-left: 7%; }
+.rsF .sp2 {margin-top: -1.2rem;margin-left: 7%;}
+.rsF p{font-size: .45rem;text-align: center;padding-left: .3rem;padding-right: .3rem;margin-top: 1rem;padding-top: 2rem;font-weight: bolder;}

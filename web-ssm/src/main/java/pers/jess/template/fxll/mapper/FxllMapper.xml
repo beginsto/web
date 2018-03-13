@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.fxll.dao.FxllMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.fxll.model.Fxll" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="addr" property="addr" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="reserve" property="reserve" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mobile, addr, realname, reserve
+  </sql>
+  <select id="selectByMobile" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_fxll_info
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="pers.jess.template.fxll.model.Fxll" >
+    insert into t_fxll_info (id, mobile, addr, 
+      realname, reserve)
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{reserve,jdbcType=VARCHAR})
+  </insert>
+
+
+</mapper>

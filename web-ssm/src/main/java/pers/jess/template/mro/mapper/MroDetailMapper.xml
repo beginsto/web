@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.mro.dao.MroDetailMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.mro.model.MroDetail" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="evaluate" property="evaluate" jdbcType="INTEGER" />
+    <result column="advice" property="advice" jdbcType="VARCHAR" />
+    <result column="issue" property="issue" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, openid, evaluate, advice, issue, createtime
+  </sql>
+  <select id="queryByOpenidAndIssue" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from t_mro_detail
+    where
+      openid = #{openid,jdbcType=VARCHAR}
+    and
+      issue = #{issue,jdbcType=INTEGER}
+    and
+      pid = #{pid,jdbcType=INTEGER}
+  </select>
+  <select id="queryList" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from t_mro_detail
+    where
+    openid = #{openid,jdbcType=VARCHAR}
+    and
+    issue = #{issue,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_mro_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_mro_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.mro.model.MroDetail" >
+    insert into t_mro_detail (id, pid, openid, 
+      evaluate, advice, issue, 
+      createtime)
+    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, 
+      #{evaluate,jdbcType=INTEGER}, #{advice,jdbcType=VARCHAR}, #{issue,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.mro.model.MroDetail" >
+    insert into t_mro_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="evaluate != null" >
+        evaluate,
+      </if>
+      <if test="advice != null" >
+        advice,
+      </if>
+      <if test="issue != null" >
+        issue,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluate != null" >
+        #{evaluate,jdbcType=INTEGER},
+      </if>
+      <if test="advice != null" >
+        #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.mro.model.MroDetail" >
+    update t_mro_detail
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluate != null" >
+        evaluate = #{evaluate,jdbcType=INTEGER},
+      </if>
+      <if test="advice != null" >
+        advice = #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="issue != null" >
+        issue = #{issue,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.mro.model.MroDetail" >
+    update t_mro_detail
+    set
+      evaluate = #{evaluate,jdbcType=INTEGER},
+      advice = #{advice,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

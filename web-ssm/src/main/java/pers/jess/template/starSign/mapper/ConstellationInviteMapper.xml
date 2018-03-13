@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.starSign.dao.ConstellationInviteMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.starSign.model.ConstellationInvite" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="inviterid" property="inviterid" jdbcType="VARCHAR" />
+    <result column="openidserver" property="openidserver" jdbcType="VARCHAR" />
+    <result column="unionid" property="unionid" jdbcType="VARCHAR" />
+    <result column="issuccess" property="issuccess" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="successtime" property="successtime" jdbcType="TIMESTAMP" />
+    <result column="issue" property="issue" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inviterid, openidserver, unionid, issuccess, createtime, successtime, issue
+  </sql>
+  <select id="queryInfoCount" resultType="Integer">
+    select count(*) FROM  t_constellation_info
+  </select>
+  <select id="queryCountByParam" resultType="Integer" parameterType="pers.jess.template.starSign.model.ConstellationInvite" >
+    select
+    count(*)
+    from t_constellation_invite
+    where
+        inviterid = #{inviterid,jdbcType=VARCHAR}
+    AND
+     issue = #{issue,jdbcType=VARCHAR}
+    AND
+       issuccess = #{issuccess,jdbcType=INTEGER}
+  </select>
+
+  <select id="queryHelpCount" resultType="Integer" parameterType="pers.jess.template.starSign.model.ConstellationInvite">
+    select
+      count(*)
+    from
+      t_constellation_invite
+    WHERE
+       openidserver = #{openidserver,jdbcType=VARCHAR}
+    AND
+       issue = #{issue,jdbcType=VARCHAR}
+    AND
+       issuccess = #{issuccess,jdbcType=INTEGER}
+  </select>
+  <select id="queryHelpRepeat" resultType="Integer" parameterType="pers.jess.template.starSign.model.ConstellationInvite">
+    select
+    count(*)
+    from
+    t_constellation_invite
+    WHERE
+      inviterid = #{inviterid,jdbcType=VARCHAR}
+    AND
+    openidserver = #{openidserver,jdbcType=VARCHAR}
+    AND
+    issue = #{issue,jdbcType=VARCHAR}
+    AND
+    issuccess = #{issuccess,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_constellation_invite
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_constellation_invite
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.starSign.model.ConstellationInvite" >
+    insert into t_constellation_invite (id, inviterid, openidserver, 
+      unionid, issuccess, createtime, 
+      successtime, issue)
+    values (#{id,jdbcType=INTEGER}, #{inviterid,jdbcType=INTEGER}, #{openidserver,jdbcType=VARCHAR}, 
+      #{unionid,jdbcType=VARCHAR}, #{issuccess,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{successtime,jdbcType=TIMESTAMP}, #{issue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.starSign.model.ConstellationInvite" >
+    insert into t_constellation_invite
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="inviterid != null" >
+        inviterid,
+      </if>
+      <if test="openidserver != null" >
+        openidserver,
+      </if>
+      <if test="unionid != null" >
+        unionid,
+      </if>
+      <if test="issuccess != null" >
+        issuccess,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="successtime != null" >
+        successtime,
+      </if>
+      <if test="issue != null" >
+        issue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="inviterid != null" >
+        #{inviterid,jdbcType=INTEGER},
+      </if>
+      <if test="openidserver != null" >
+        #{openidserver,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null" >
+        #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="issuccess != null" >
+        #{issuccess,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="successtime != null" >
+        #{successtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.starSign.model.ConstellationInvite" >
+    update t_constellation_invite
+    <set >
+      <if test="inviterid != null" >
+        inviterid = #{inviterid,jdbcType=INTEGER},
+      </if>
+      <if test="openidserver != null" >
+        openidserver = #{openidserver,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null" >
+        unionid = #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="issuccess != null" >
+        issuccess = #{issuccess,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="successtime != null" >
+        successtime = #{successtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issue != null" >
+        issue = #{issue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.starSign.model.ConstellationInvite" >
+    update t_constellation_invite
+    set inviterid = #{inviterid,jdbcType=INTEGER},
+      openidserver = #{openidserver,jdbcType=VARCHAR},
+      unionid = #{unionid,jdbcType=VARCHAR},
+      issuccess = #{issuccess,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      successtime = #{successtime,jdbcType=TIMESTAMP},
+      issue = #{issue,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

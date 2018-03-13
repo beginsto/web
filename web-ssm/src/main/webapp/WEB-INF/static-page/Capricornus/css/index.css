@@ -1,0 +1,104 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+	margin:0;
+	padding:0;
+}
+html,body {
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.base-page{width: 100%;height: 100%;position: relative;overflow: scroll;}
+.all {width: 100%;position: relative;background: rgb(253,255,255);}
+.background {width: 100%;}
+.btnDiv {width: 100%;height: 3.1rem;position: relative;}
+.btnDiv span {height: 1rem;display: block;position: absolute;background: rgb(38,174,98);line-height: 1rem;font-size: .5rem;text-align: center;color: white;border-radius: 5px;}
+.btnDiv .ruleBtn {width: 35%;top: .3rem;left: 10%;}
+.btnDiv .myGiftBtn {width: 35%;top: .3rem;left: 55%;}
+.btnDiv .iNoBtn {width: 80%;top: 1.6rem;left: 10%;}
+.zhiZhenDiv {width: 6rem;height: 6rem;position: absolute;left: 1.98rem;top:6.72rem;
+            transform: rotate(0deg);
+            -ms-transform: rotate(0deg); /* IE 9 */
+            -webkit-transform: rotate(0deg); /* Safari and Chrome */ }
+.zhiZhenDiv img{width: 40%;margin-top: 1.1rem;margin-left: 29.5%;}
+
+.ruleDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.color-ground {width: 90%;left: 5%;height: 80%;position: relative;top: 5%;border-radius: 10px;
+						background: -webkit-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Safari 5.1 - 6.0 */
+  						background: -o-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Opera 11.1 - 12.0 */
+  						background: -moz-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Firefox 3.6 - 15 */
+  						background: linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* 标准的语法 */}
+.context {width: 94%;height: 96%;top: 2%;left: 3%;position: relative;background: rgb(253,255,255);border-radius: 10px;overflow-x: hidden;overflow-y: scroll;}
+.context p {font-size: .4rem;padding-left: .2rem;padding-right: .2rem;}
+.color {color: rgb(182,77,76);}
+.p1 {padding-top: .7rem;}
+.p2 {padding-bottom: .5rem;}
+.ruleHead {width: 60%;position: absolute;top: .5%;left: 20%;}		
+.closeRule {width: 15%;left: 42.5%;position: absolute;top: 87%;}
+
+.getGiftDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.gift {width: 85%;margin-left: 6.5%;margin-top: 3rem;}
+.closeGift {width: 15%;margin-left: 42.5%;margin-top: 1rem;}		
+.giftContext {width: 100%;height: 1rem;text-align: center;color: white;font-size: .5rem;position: absolute;line-height: 1rem;top: 7rem;}
+.giftContext span {color: rgb(244,226,125);}
+
+.isGiftDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.isGift {width: 85%;margin-left: 6.5%;margin-top: 3rem;}
+.closeThis {width: 15%;margin-left: 42.5%;margin-top: 1rem;}
+
+.myGiftDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.color-ground-2 {width: 90%;left: 5%;height: 75%;position: relative;top: 7%;border-radius: 10px;
+            background: -webkit-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Safari 5.1 - 6.0 */
+              background: -o-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Opera 11.1 - 12.0 */
+              background: -moz-linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* Firefox 3.6 - 15 */
+              background: linear-gradient(rgb(231,134,68), rgb(111,32,76)); /* 标准的语法 */}
+.context-2 {width: 94%;height: 96%;top: 2%;left: 3%;position: relative;background: rgb(253,255,255);border-radius: 10px;}
+.context-2 img {width: 50%;margin-left: 8%;margin-top: 1rem;}
+.context-2 .mGiftP {font-size: .75rem;position: absolute;top: 1.1rem;color: yellow;left: .8rem;}
+.context-2 .mGiftSpan {font-size: 1.2rem;}
+.context-2 .rGiftP {font-size: .75rem;position: absolute;top: 1.1rem;color: yellow;left: 1.5rem;}
+.context-2 .rGiftSpan {font-size: 1.2rem;}
+.context-2 .noGiftP {font-size: .6rem;position: absolute;top: 1.1rem;color: black;left: 1.5rem;}
+.context-2 .dl {color: blue;}
+
+.myGiftHead {width: 50%;position: absolute;top: 3%;left: 25%;}
+.giftFoter {width: 35%;position: absolute;left: 60%;top: 60%;}
+.closeMyGift {width: 15%;left: 42.5%;position: absolute;top: 87%;} 
+
+.loginDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.color-ground-1 {width: 90%;left: 5%;height: 7.5rem;position: relative;top: 2rem;border-radius: 10px;
+            background: -webkit-linear-gradient(rgb(232,136,68), rgb(112,32,76)); /* Safari 5.1 - 6.0 */
+              background: -o-linear-gradient(rgb(232,136,68), rgb(112,32,76)); /* Opera 11.1 - 12.0 */
+              background: -moz-linear-gradient(rgb(232,136,68), rgb(112,32,76)); /* Firefox 3.6 - 15 */
+              background: linear-gradient(rgb(232,136,68), rgb(112,32,76)); /* 标准的语法 */}
+.context-1 {width: 94%;height: 94%;top: 3%;left: 3%;position: relative;background: rgb(253,255,255);border-radius: 10px;}
+.loginHead {width: 80%;margin-top: .5rem;margin-left: 10%;}
+.tel {width: 80%;height: 1.2rem;border:0;background: rgb(241,241,241);margin-left: 10%;margin-top: .5rem;font-size: .4rem;border-radius: 5px;}
+.num {width: 37%;height: 1.2rem;border:0;background: rgb(241,241,241);margin-left: 10%;margin-top: .5rem;font-size: .4rem;border-radius: 5px;}
+.code {width:38%;height: 1.2rem;display: block;border:0;margin-top: -1.2rem;margin-left: 52%;background: rgba(254,230,118,1);color: white;text-align: center;line-height: 1.2rem;font-size: .4rem;border-radius: 5px;}
+.login {width: 80%;height: 1.2rem;display: block;background: rgb(207,65,69);color: white;font-size: .5rem;line-height: 1.2rem;text-align: center;margin-top: .5rem;margin-left: 10%;border-radius: 5px;}
+
+.successDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.successDiv img {width: 80%;margin-left: 10%;margin-top: 3rem;}
+.successContext {position: absolute;text-align: center;width: 78%;left: 11%;font-size:.4rem;top: 5.5rem;line-height: .7rem;}
+#mm {color: rgb(187,94,93);}
+.falseDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.false {width: 80%;margin-left: 10%;margin-top: 3rem;}
+.closeFalse {width: 15%;margin-left: 42.5%;margin-top: .5rem;}
+
+
+/*转发页面*/
+.forward {width: 100%;}
+.forwardBtn {width: 7.4rem;height: 1.12rem;box-sizing: border-box;display: block;position: absolute;top: 8.68rem;left: 1.3rem;}
+.wardDiv {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(77,77,77,.7);display: none;}
+.ward {width: 60%;margin-left: 20%;margin-top: .5rem;}
+.iKnow {width: 35%;margin-left: 32.5%;margin-top: .5rem;}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.jxwxInterface.dao.LiangPhoneMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.jxwxInterface.model.LiangPhone" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="is_used" property="isUsed" jdbcType="INTEGER" />
+    <result column="gmt_used" property="gmtUsed" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, phone, is_used, gmt_used
+  </sql>
+  <select id="queryById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+      p1.id id,
+      p1.phone phone,
+      p1.is_used is_used,
+      p1.gmt_used gmt_used,
+      p2.version version
+    from t_liang_phone p1
+    left join t_liang_period p2
+    on (p1.id = p2.mid)
+    where p1.id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="list" resultType="pers.jess.template.jxwxInterface.model.LiangPhone" >
+    select
+      p1.id id,
+      p1.phone phone,
+      p1.is_used isUsed,
+      p2.version version
+      from
+        t_liang_phone p1
+      left join
+        t_liang_period p2
+      on
+        (p1.id = p2.mid)
+      where
+        p1.is_used = 0
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_liang_phone
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.jxwxInterface.model.LiangPhone" >
+    insert into t_liang_phone (id, phone, is_used, 
+      gmt_used)
+    values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{isUsed,jdbcType=INTEGER}, 
+      #{gmtUsed,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.jxwxInterface.model.LiangPhone" >
+    insert into t_liang_phone
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="isUsed != null" >
+        is_used,
+      </if>
+      <if test="gmtUsed != null" >
+        gmt_used,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="isUsed != null" >
+        #{isUsed,jdbcType=INTEGER},
+      </if>
+      <if test="gmtUsed != null" >
+        #{gmtUsed,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.jxwxInterface.model.LiangPhone" >
+    update t_liang_phone
+    <set >
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="isUsed != null" >
+        is_used = #{isUsed,jdbcType=INTEGER},
+      </if>
+      <if test="gmtUsed != null" >
+        gmt_used = #{gmtUsed,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.jxwxInterface.model.LiangPhone" >
+    update t_liang_phone
+    set phone = #{phone,jdbcType=VARCHAR},
+      is_used = #{isUsed,jdbcType=INTEGER},
+      gmt_used = #{gmtUsed,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateSetUsed" parameterType="java.lang.Integer">
+    update t_liang_phone
+    set
+      is_used = 1,
+      gmt_used = now()
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

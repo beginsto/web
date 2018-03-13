@@ -1,0 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+  margin:0;
+  padding:0;
+}
+    html, body {
+      position: relative;
+      height: 100%;
+      padding-bottom: 0;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      /* Center slide text vertically */
+        width: 100%;
+        height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+.slideOne {min-height:100%;min-width:100%;}
+.slideOneTu {height: 100%;width: 100%;position: absolute;background: url("http://wzyd11.gotone.net.cn:9000/wzyd5_static/time-machine/slideOne.png") center no-repeat;background-size: 100% 100%;}
+.slideOne .nameP {display: block;font-size: 0.5rem;top: 1.4rem;margin-left: 4rem;position: absolute;display: none;}
+.slideOne .slideOneBg {position: absolute;width: 80%;height: 3.5rem;background: url("http://wzyd11.gotone.net.cn:9000/wzyd5_static/time-machine/baogao.png")center no-repeat;background-size: 10%;top: 2.1rem;left: 10%;display: none;}
+.slideOne .next {position: absolute;width: 80%;height: 3rem;background: url("http://wzyd11.gotone.net.cn:9000/wzyd5_static/time-machine/next.png")center no-repeat;background-size: 10%;top: 5rem;left: 10%;display: none;}
+.slideOne .shou {width: 22%;position: absolute;margin-left: 120%;top: 5.35rem;display: none;}
+#name {color:rgb(255,165,0);}
+.ewm {position: absolute;width: 40%;top: 8rem;left: 30%;}
+.context {width: 100%;height: 3rem;position: absolute;top: 12.3rem;}
+.context p {text-align: center;color: rgb(191,81,78);font-size: .4rem;font-weight: bolder;}

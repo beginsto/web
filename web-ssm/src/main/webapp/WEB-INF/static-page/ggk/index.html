@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="ht">
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<meta name="format-detection" content="email=no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/flexible.js"></script>
+	<script src="js/index.js"></script>
+	<title>嘉兴移动30GB流量大派送</title>
+</head>
+<body>
+	<div class="all" style="height: 18rem;">
+		<img class="alImg" src="image/all.png"/>
+		<div class="gb">
+			<img class="gbimg" src="image/gb.png"/>
+			<div class="gk">
+				<p class="p1">啊哦，您与奖品擦肩而过</p>
+				<p class="p2">恭喜您</p>
+				<p class="p3">获得<span>30GB</span>流量</p>
+				<p class="p4">我们将尽快安排为您赠送流量</p>
+				<canvas id="canvas">刮开奖品</canvas>
+			</div>
+		</div>
+	</div>
+	<div class="hide"></div>
+	<div class="loginDiv">
+		<img class="close" style="float: right;width: 10%;margin-top: .1rem" src="image/close.png" />
+		<input type="tel" name="tel" class="tel" placeholder="请输入手机号码"/>
+		<input type="num" name="num" class="num" placeholder="请输入验证码"/>
+		<span id="getNumb" class="code">获取验证码</span>
+		<span class="login">登录</span>
+	</div>
+<div>
+	<img style="width:100%;position: absolute;top: 11rem;" src="image/rules.png" />
+</div>
+</body>
+</html>
+<script>
+	$('.close').click(function () {
+        $(".hide").hide();
+        $(".loginDiv").hide();
+    })
+</script>

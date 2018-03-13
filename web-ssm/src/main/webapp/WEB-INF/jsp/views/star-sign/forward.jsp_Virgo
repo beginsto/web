@@ -1,0 +1,96 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="format-detection" content="email=no"/>
+
+    <link href="${ctx }/css/star-sign/test.css" rel="stylesheet"/>
+    <script src="${ctx }/js/common/jquery-1.11.0.min.js"></script>
+    <script src="${ctx }/js/star-sign/jQueryRotate.2.2.js"></script>
+    <script src="${ctx }/js/star-sign/rem2.js"></script>
+    <script src="${ctx }/js/star-sign/index.js"></script>
+    <title></title>
+
+    <script>
+        window.onload = function(){
+            $("#fenxiang").bind("click",function(){
+
+                $(".alll2").css("display","block");
+            })
+
+            $("#clos").bind("click",function () {
+                $('.alll2').css("display","none");
+            })
+        }
+    </script>
+</head>
+<!--<body>
+<div class="alll">
+    <img id="fenxiang" src="${ctx }/images/star-sign/fenxiang.png">
+</div>
+<div class="alll2">
+    <img src="${ctx }/images/star-sign/fx.png"/>
+</div>
+</body>-->
+
+<body>
+<div class="alll">
+    <image src="${ctx }/images/star-sign/frifx.png"/>
+    <span id="fenxiang">&nbsp;</span>
+</div>
+<div class="alll2">
+    <img src="${ctx }/images/star-sign/share.png"/>
+    <div class="alll2-zi">
+        <p>召集处女座好友完成验证</p>
+        <p>即可获得一次抽奖机会！</p>
+        <p>最高可得1G流量券奖励哦！</p>
+        <span id="clos">&nbsp;</span>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="${ctx }/js/common/wechat/wx_api.js"></script>
+<script type="text/javascript">
+
+    wx.ready(function(){
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title: '心疼处女座！3000G流量券就等你来领！抢到就是赚到！', // 分享标题
+            link: 'http://jxyd.1860.cn/main/star-sign/friend?openid=${openid }', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://jxyd.1860.cn/main/images/star-sign/share_1.png', // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title: '心疼处女座！3000G流量券就等你来领！抢到就是赚到！', // 分享标题
+            desc: '你的好友${nickName }正在疯抢流量券！离成功就差0.01米，你赶紧来帮TA吧！', // 分享描述
+            link: 'http://jxyd.1860.cn/main/star-sign/friend?openid=${openid }', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://jxyd.1860.cn/main/images/star-sign/share_1.png', // 分享图标
+            //type: '', // 分享类型,music、video或link，不填默认为link
+            //dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                //alert("分享成功")
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                //alert("取消分享");
+            }
+        });
+    });
+</script>

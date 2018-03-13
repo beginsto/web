@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no"/>
+	<meta name="msapplication-tap-highlight" content="no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="http://jxyd2.1860.cn:9090/jxwx_static/JUI/js/jquery-1.11.0.min.js"></script>
+	<script src="http://jxyd2.1860.cn:9090/jxwx_static/JUI/js/flexible.js"></script>
+	<title>八佰登记领奖</title>
+</head>
+<body>
+	<div class="base-page">
+		<div class="all">
+			<img class="background" src="http://jxyd2.1860.cn:9090/jxwx_static/img/yaohan/all.png"/>
+			<div class="login-back back">
+				<div class="loginDiv back-co">
+					<img class="head" src="http://jxyd2.1860.cn:9090/jxwx_static/img/yaohan/djlj.png"/>
+					<input type="tel" name="tel" class="tel" placeholder="请输入手机号码">
+					<input type="num" name="num" class="num" placeholder="请输入验证码">
+					<span class="code" id="code">获取验证码</span>
+					<input type="num" name="hjm" class="hjm" placeholder="请输入中奖券码">
+					<span class="login">立即登记</span>
+					<p class="ps">如需更改号码，请前往嘉兴移动官微回复“绑定”,按照提示修改。</p>
+				</div>
+			</div>
+			<div class="suDiv back">
+				<div class="suContext back-co">
+					<img class="head" src="http://jxyd2.1860.cn:9090//img/yaohan/djcg.png"/>
+					<p class="p1">您所登记的手机号码：<span id="tel"></span></p>
+					<p class="p2">您所获得的奖励：<span id="gift"></span></p>
+					<div></div>
+					<p class="p3">
+						</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+        (function ($) {
+            $.getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+            }
+        })(jQuery);
+
+        var openid = $.getUrlParam('openid');
+        var _tel = $('.tel')
+        var _suDiv = $(".suDiv")
+        var _suDiv_tel = $('#tel')
+        var _suDiv_award = $('#gift')
+
+        var phone,validate_code
+        var oBtn = document.getElementById('code');
+        var set = false;
+		$(document).ready(function () {
+
+
+			if(openid == undefined)
+			{
+				alert("请在嘉兴移动官方微信回复周年庆，进入活动")
+			}else{
+			    $.ajax({
+					url:'../../yaohan/getData',
+					data:{openid:openid},
+					dataType:'json',
+					success:function (data) {
+                        console.log(JSON.stringify(data))
+					    if (data.resultCode == 20000){
+					        if (data.message == null){
+								var d = JSON.parse(data.data)
+                                _suDiv_tel.text(d.phone)
+                                _suDiv_award.text(d.couponDesc)
+								console.log(d.couponDesc)
+								if(d.couponDesc.indexOf('流量') != -1){
+									$('.p3').html('奖励发放规则：<br/>'+'流量券奖励，将于兑换奖励后的3个工作日内赠送您手机营业厅流量券账户中，流量券有效期90日，流量兑换后当月有效，次月不结转。请注意查收并及时兑换。活动仅限嘉兴移动手机实名用户参加。')
+								}else if(d.couponDesc.indexOf('话费') != -1){
+                                    $('.p3').html('奖励发放规则：<br/>'+'话费奖励，将于兑换奖励后的7个工作日内，赠送至你所登记的手机号码内，请注意查收。活动仅限嘉兴移动手机实名用户参加。')
+								}else if(d.couponDesc.indexOf('光宽带') != -1){
+                                    $('.p3').html('奖励发放规则：<br/>'+'移动光宽带奖励，将于兑换奖励后的7个工作日内，有相关的工作人员与您联系相关赠送事宜，请保持手机畅通。')
+								}
+                                _suDiv.show();
+							}else{
+                                _tel.val(data.message)
+                                $(".tel").attr("disabled","disabled");
+                                $(".ps").show();
+							}
+						}else if(data.resultCode == 10000 ){
+							alert("参数异常...")
+						}else if (data.resultCode == 10001){
+                            alert("小伙伴们太热情了...请休息几分钟再试可好？")
+						}
+                    },
+					error:function () {
+                        alert("小伙伴们太热情了...服务器被挤爆拉...")
+                    }
+				})
+
+
+                function toDouble(num) {
+                    if (num < 10) {
+                        return '0' + num;
+                    }
+                    else {
+                        return '' + num;
+                    }
+                }
+                oBtn.onclick = function (ev) {
+                    if (set) {
+                        return;
+                    }
+                    phone=$("input[name='tel']").val();
+                    if(phone==""){
+                        alert("请输入手机号码");
+                        return;
+                    }
+                    set = true;
+                    $.ajax({
+                        url:'../../sms/sendMsg',
+                        data:{mobile:phone},
+                        dataType:'json',
+                        success:function (data) {
+
+                            var num = 60;
+                            oBtn.innerHTML = num + 'S后重新获取';
+                            timer = setInterval(function () {
+                                num--;
+                                oBtn.innerHTML = toDouble(num) + 'S后重新获取';
+                                if (num == 0) {
+                                    clearInterval(timer);
+                                    oBtn.innerHTML = '获取验证码';
+                                }
+                            }, 1000);
+
+                            if (data.resultCode == 200){
+                                validate_code = data.message;
+                            }else{
+                                alert(data.message)
+                            }
+                        }
+                    })
+
+
+
+                }
+
+                $(".login").bind("click",function(){
+                    tel=$("input[name='tel']").val();//电话
+                    var num=$("input[name='num']").val();//验证码
+                    var hjm=$("input[name='hjm']").val();
+                    var r = /^\+?[1-9][0-9]*$/;
+                    var tr=r.test(tel);
+                    var tn=r.test(num);
+					if ($('.hjm').val() == ''){
+					    alert("请输入券码");
+					    return
+					}
+                    if (num == validate_code){
+                        $.ajax({
+                            url:'../../yaohan/commit',
+                            data:{num:phone,tic:$('.hjm').val(),openid:openid},
+                            dataType:'json',
+                            success:function(data) {
+								if (data.resultCode == 20000){
+                                    $("#tel").text(phone);
+                                    $("#gift").text(data.message);
+
+                                    if(data.message.indexOf('流量') != -1){
+                                        $('.p3').html('奖励发放规则：<br/>'+'流量券奖励，将于兑换奖励后的3个工作日内赠送您手机营业厅流量券账户中，流量券有效期90日，流量兑换后当月有效，次月不结转。请注意查收并及时兑换。活动仅限嘉兴移动手机实名用户参加。')
+                                    }else if(data.message.indexOf('话费') != -1){
+                                        $('.p3').html('奖励发放规则：<br/>'+'话费奖励，将于兑换奖励后的7个工作日内，赠送至你所登记的手机号码内，请注意查收。活动仅限嘉兴移动手机实名用户参加。')
+                                    }else if(data.message.indexOf('光宽带') != -1){
+                                        $('.p3').html('奖励发放规则：<br/>'+'移动光宽带奖励，将于兑换奖励后的7个工作日内，有相关的工作人员与您联系相关赠送事宜，请保持手机畅通。')
+                                    }
+
+                                    $(".login-back").hide();
+                                    $(".suDiv").show();
+								}else{
+                                    alert(data.message);
+								}
+                            },
+                            error:function () {
+
+                            }
+
+                        })
+                    }else{
+                        alert("请重新输入手机号码或者验证码或者中奖码");
+                    }
+
+                });
+
+			}
+        })
+
+	</script>
+</body>
+</html>

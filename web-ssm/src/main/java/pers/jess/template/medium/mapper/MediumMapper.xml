@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.medium.dao.MediumMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.medium.model.Medium" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="org_id" property="orgId" jdbcType="INTEGER" />
+    <result column="station_name" property="stationName" jdbcType="VARCHAR" />
+    <result column="img_original" property="imgOriginal" jdbcType="VARCHAR" />
+    <result column="img_preview" property="imgPreview" jdbcType="VARCHAR" />
+    <result column="img_description" property="imgDescription" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="gmt_deleted" property="gmtDeleted" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, org_id, station_name, img_original, img_preview, img_description, order_num, 
+    state, gmt_create, gmt_modified, gmt_deleted, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_medium_image
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_medium_image
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pers.jess.template.medium.model.Medium" >
+    insert into t_medium_image (id, user_id, org_id, 
+      station_name, img_original, img_preview, 
+      img_description, order_num, state, 
+      gmt_create, gmt_modified, gmt_deleted, 
+      is_deleted)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{orgId,jdbcType=INTEGER}, 
+      #{stationName,jdbcType=VARCHAR}, #{imgOriginal,jdbcType=VARCHAR}, #{imgPreview,jdbcType=VARCHAR}, 
+      #{imgDescription,jdbcType=VARCHAR}, #{orderNum,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{gmtDeleted,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.medium.model.Medium" >
+    insert into t_medium_image
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="stationName != null" >
+        station_name,
+      </if>
+      <if test="imgOriginal != null" >
+        img_original,
+      </if>
+      <if test="imgPreview != null" >
+        img_preview,
+      </if>
+      <if test="imgDescription != null" >
+        img_description,
+      </if>
+      <if test="orderNum != null" >
+        order_num,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="gmtDeleted != null" >
+        gmt_deleted,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=INTEGER},
+      </if>
+      <if test="stationName != null" >
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgOriginal != null" >
+        #{imgOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPreview != null" >
+        #{imgPreview,jdbcType=VARCHAR},
+      </if>
+      <if test="imgDescription != null" >
+        #{imgDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtDeleted != null" >
+        #{gmtDeleted,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.jess.template.medium.model.Medium" >
+    update t_medium_image
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="orgId != null" >
+        org_id = #{orgId,jdbcType=INTEGER},
+      </if>
+      <if test="stationName != null" >
+        station_name = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgOriginal != null" >
+        img_original = #{imgOriginal,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPreview != null" >
+        img_preview = #{imgPreview,jdbcType=VARCHAR},
+      </if>
+      <if test="imgDescription != null" >
+        img_description = #{imgDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null" >
+        order_num = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtDeleted != null" >
+        gmt_deleted = #{gmtDeleted,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.jess.template.medium.model.Medium" >
+    update t_medium_image
+    set user_id = #{userId,jdbcType=INTEGER},
+      org_id = #{orgId,jdbcType=INTEGER},
+      station_name = #{stationName,jdbcType=VARCHAR},
+      img_original = #{imgOriginal,jdbcType=VARCHAR},
+      img_preview = #{imgPreview,jdbcType=VARCHAR},
+      img_description = #{imgDescription,jdbcType=VARCHAR},
+      order_num = #{orderNum,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      gmt_deleted = #{gmtDeleted,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

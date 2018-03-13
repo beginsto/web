@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.jess.template.signin.dao.SignInLikeAmountMapper" >
+  <resultMap id="BaseResultMap" type="pers.jess.template.signin.model.SignInLikeAmount" >
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userid, version, amount
+  </sql>
+  <select id="queryRankPopularity" resultType="pers.jess.template.signin.model.SignInLikeAmount" parameterType="java.util.Map">
+    SELECT
+      l.userid ,
+      l.amount ,
+      u.nickname ,
+      u.headimg
+    FROM
+      t_signin_like_amount l
+    LEFT JOIN
+      t_signin_user u ON(l.userid = u.id)
+    WHERE
+      l.version = #{version,jdbcType=INTEGER}
+    ORDER BY
+      l.amount DESC
+  </select>
+  <select id="queryData" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from
+    t_signin_like_amount
+    where
+    userid = #{userid,jdbcType=INTEGER}
+    AND
+    version = #{version,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="pers.jess.template.signin.model.SignInLikeAmount" >
+    insert into t_signin_like_amount (userid, version, amount
+      )
+    values (#{userid,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pers.jess.template.signin.model.SignInLikeAmount" >
+    insert into t_signin_like_amount
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="updateLikeData" parameterType="pers.jess.template.signin.model.SignInLikeAmount" >
+    update t_signin_user
+    set userid = #{userid,jdbcType=INTEGER},
+    version = #{version,jdbcType=INTEGER},
+    amount = #{amount,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+    AND  version = #{version,jdbcType=INTEGER}
+  </update>
+</mapper>

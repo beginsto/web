@@ -1,0 +1,85 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input, textarea {
+    -webkit-appearance: none;
+}
+div,img,span,table,p{
+  margin:0;
+  padding:0;
+}
+html, body {position: relative;height: 100%;}
+
+.all {width: 100%;height: 17.79rem;overflow:hidden;position: absolute;}
+.alImg {width: 100%;height: 100%; position: absolute;}
+.rule {width: 10%;position: absolute;top: 7rem;left: 90%;}
+.ruleG {width: 10%;position: absolute;top: 8rem;left: 90%;}
+.all div{display: block;position: absolute;}
+.jd1 {width: 35%;margin-top: 10.2rem;margin-left: 32.5%;text-align: center;}
+.jd1 img {width: 100%;}
+
+.jd2 {width: 30%;margin-top: 10.5rem;margin-left: 70%;}
+.jd2 img {width: 100%;}
+
+.jd3 {width: 25%;margin-top: 11rem;margin-left: 56%;}
+.jd3 img {width: 100%;}
+
+.jd4 {width: 25%;margin-top: 11rem;margin-left: 18.5%;}
+.jd4 img {width: 100%;}
+
+.jd5 {width: 30%;margin-top: 10.5rem;margin-left: 0%;height: 3.5rem;}
+.jd5 img {width: 100%;}
+
+.mid-t {z-index: 3;}
+.zhong-t {z-index: 2;}
+.hou-t {z-index: 1;}
+.mid-t p{margin-top: -3.2rem;font-size:1.2rem;text-align: center;}
+.zhong-t p {font-size:1rem;margin-top: -2.8rem;text-align: center;}
+.hou-t p {font-size:.8rem;margin-top: -2.3rem;text-align: center;}
+.right {display: block;position: absolute;width: 8%;left: 90%;top: 11.6rem;z-index: 3;}
+.left {display: block;position: absolute;width: 8%;left: 2%;top: 11.6rem;z-index: 3;}
+.chui {display: block;position: absolute;width: 30%;z-index: 4;top: 9.5rem;left: 2rem;
+	   transform: rotate(0deg);
+      -ms-transform: rotate(0deg); /* IE 9 */
+      -webkit-transform: rotate(0deg); /* Safari and Chrome */
+  	  transform-origin:left bottom;
+  	  -ms-transform-origin:left bottom;
+  	  -webkit-transform-origin:left bottom;}
+.za {width: 35%;top: 10.2rem;margin-left: 32.5%;z-index: 5;position: absolute;height: 4rem;}
+
+.ruleDiv {width: 100%;height: 17.79rem;overflow:hidden; position: absolute;background: rgba(77,77,77,.7);z-index: 6;display: none;}
+.ruleB {width: 90%;position: absolute;left: 5%;top: 2rem;}
+.turn {width: 90%;height: 1.2rem;position: absolute;top: 1.7rem;left: 5%;}
+.turn img {display: block;float: left;width: 30%;height: 100%;}
+.turn .ruleTurn {margin-left: 15%;}
+.turn .giftTurn {margin-left: 10%;}
+.page-rule {width: 74%;height: 11.55rem;left: 13%;top: 3.03rem;position: absolute;overflow-x: hidden;overflow-y: scroll; display: block;}
+.page-rule img {display: block;width: 25%;margin-left: .5rem;}
+.page-rule .hdsj {margin-top: .4rem;margin-bottom: .1rem;}
+.page-rule .hddx {margin-top: .1rem;margin-bottom: .1rem;}
+.page-rule .cygz {margin-top: .1rem;margin-bottom: .1rem;}
+.page-rule .hdjl {margin-top: .2rem;margin-bottom: .1rem;}
+.page-rule p{font-size: .35rem;margin-left: .5rem;padding-right: .2rem;}
+.page-rule .p1 {margin-top: .5rem;margin-bottom: .2rem;}
+.page-gift {width: 74%;height: 11.55rem;left: 13%;top: 3.03rem;position: absolute;box-sizing: border-box;display: none;}
+.page-gift img {display: block;width: 25%;margin-left: .5rem;margin-top: .4rem;margin-bottom: .1rem;}
+.page-gift p{font-size: .4rem;margin-left: .5rem;padding-right: .2rem;font-family: cursive;font-weight: bolder;margin-top: .5rem;}
+.closeR {display: block;position: absolute;width: 1rem;height: 1rem;top: 2rem;left: 8.5rem;}
+
+.getGiftDiv {width: 74%;height: 3rem;box-sizing: border-box;left: 13%;height: 3.2rem;top: 3.8rem;}
+.getGiftDiv p {color: white;font-size: .4rem;padding-right: .2rem;padding-left: .35rem;line-height: .65rem;margin-top: .5rem;}
+.giftDiv {font-size: .6rem;color: yellow;font-family: cursive;text-align: center;width: 39%;height: 2rem;border:0;left: 30%;top: 9.3rem;line-height: 1.7rem;font-weight: bolder;}
+.back {width: 40%;display: block;position: absolute;top: 15rem;left: 5%;}
+.forw {width: 40%;display: block;position: absolute;top: 15rem;left: 55%;}
+
+.lose {width: 100%;height: 17.79rem;overflow:hidden; position: absolute;background: rgba(77,77,77,.7);z-index: 6;display: none;}
+.lose img {width: 85%;margin-left: 7.5%;margin-top: 5rem;}
+.lose span {width: 1.1rem;height: 1.1rem;position: absolute;display: block;top: 5.2rem;left: 8rem;}
+
+.forwardDiv {width: 100%;height: 17.79rem;overflow:hidden; position: absolute;background: rgba(77,77,77,.7);z-index: 6;display: none;}
+.forwardDiv img {width: 80%;margin-left: 16%;margin-top: 3rem;}
+.forwardDiv span {display: block;position: absolute;width: 3.6rem;height: 1.1rem;top: 10.66rem;left: 3.3rem;}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no"/>
+	<meta name="msapplication-tap-highlight" content="no"/>
+
+	<link href="css/index.css" rel="stylesheet"/>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/flexible.js"></script> 
+	<title>摩羯座</title>
+</head>
+<body>
+	<div class="base-page">
+		<div class="all">
+			<img class="forward" src="image/forward.png"/>
+			<span class="forwardBtn"></span>
+		</div>
+		<div class="wardDiv">
+			<img class="ward" src="image/ward.png"/>
+			<img class="iKnow" src="image/iKnow.png"/>
+		</div>
+	</div>
+	<script>
+		window.onload = function(){
+			$(".forwardBtn").bind("click",function(){
+				$(".wardDiv").show();
+			});
+			$(".iKnow").bind("click",function(){
+				$(".wardDiv").hide();
+			});
+		}
+	</script>
+</body>
+</html>
