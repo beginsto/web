@@ -34,9 +34,9 @@ public class JxMpUtil {
         try {
 
             result = httpClient.doPost(URLManagerUtils.URL_USERINFO,map);
-            result = "{\"resultCode\":200,\"resultContent\":{\"phone\":\"13806702507\",\"nick\":\"\\uD83D\\uDC1FK\",\"status\":1," +
-                    "\"headimgurl\":\"http://wx.qlogo.cn/mmopen/6vRjrk8z87ib4oleFR2f5PeZ30REWic3MiahcyGNttUPaicldXIQx2U7LPStTKW9cKwF1Reibwiclf18EnEzqUia0Iqzw/0\"," +
-                    "\"openId\":\"oS8a0jruqUpJD-VnA0yirLnSCVrE\"}}";
+          //  result = "{\"resultCode\":200,\"resultContent\":{\"phone\":\"13758071993\",\"nick\":\"\\uD83D\\uDC1FK\",\"status\":1," +
+            //        "\"headimgurl\":\"http://wx.qlogo.cn/mmopen/6vRjrk8z87ib4oleFR2f5PeZ30REWic3MiahcyGNttUPaicldXIQx2U7LPStTKW9cKwF1Reibwiclf18EnEzqUia0Iqzw/0\"," +
+              //      "\"openId\":\"oS8a0jruqUpJD-VnA0yirLnSCVrE\"}}";
 
             if (StringUtils.isEmpty(result))
                 return null;

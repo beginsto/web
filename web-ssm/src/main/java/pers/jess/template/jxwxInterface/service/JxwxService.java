@@ -3,6 +3,7 @@ package pers.jess.template.jxwxInterface.service;
 import pers.jess.template.jxwxInterface.model.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface JxwxService {
 
@@ -40,10 +41,25 @@ public interface JxwxService {
 
     int updateSetUsed(Integer id);
 
-    LiangPhone queryById(Integer id);
+    LiangPhone queryById(Map<String, Integer> param);
 
     LiangInfo queryByIdCard(String idCardNo);
 
-    LiangInfo queryLiangByPhone(String phone);
+    List<LiangInfo> queryLiangByPhone(String phone);
+
+
+    /////
+    // 答题享好礼
+    /////
+    int insertQA(QuestionAnswerInfo record);
+
+    List<QuestionAnswerInfo> queryQAByParam(Map<String,  Object> param);
+
+    // 活动期间所有答题记录
+    List<QuestionAnswerInfo> queryQAByPhone(String phone);
+
+    QuestionAnswer queryQAById(Integer id);
+
+    int queryQACount();
 
 }

@@ -43,7 +43,7 @@ public class UpopPayPage {
         params.put("openid", "FromUser");
         params.put("returnurl", "http://www.baidu.com");
         params.put("notifyurl", "http://www.sina.com");
-        params.put("serial", (new Date()).getTime() + (long)(rdm.nextInt(899) + 100));
+     //   params.put("serial", (new Date()).getTime() + (long)(rdm.nextInt(899) + 100));
         String signStr = sortParamForSign(params);
         String sign = md5LowerCase(signStr + "YjASit3iry3zphJjbNt5t4dmD6asJZKi");
         params.put("goodsinfo", URLEncoder.encode((String)params.get("goodsinfo"), "UTF-8"));

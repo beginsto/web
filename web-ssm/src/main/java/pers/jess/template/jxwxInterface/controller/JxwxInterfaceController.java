@@ -1,13 +1,16 @@
 package pers.jess.template.jxwxInterface.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONStreamAware;
 import com.github.binarywang.java.emoji.EmojiConverter;
 import net.sf.jsqlparser.expression.StringValue;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.protocol.HTTP;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pers.jess.template.common.BaseController.BaseController;
 import pers.jess.template.common.httpclient.HttpClient;
@@ -18,6 +21,8 @@ import pers.jess.template.jxwxInterface.service.JxwxService;
 import pers.jess.template.jxwxInterface.utils.*;
 import pers.jess.template.localphone.model.LocalPhone;
 import pers.jess.template.localphone.service.LocalPhoneService;
+import pers.jess.template.prize.model.Prize;
+import pers.jess.template.prize.service.PrizeService;
 import pers.jess.template.register.model.RegisterInfo;
 import pers.jess.template.register.service.RegisterService;
 import pers.jess.template.signin.util.SignInUtil;
@@ -559,21 +564,21 @@ public class JxwxInterfaceController extends BaseController {
         }
         Date now = new Date();
         try {
-            LiangPhone liangPhone = jxwxService.queryById(liangInfo.getMid());
+            int version = Integer.parseInt(LiangUtil.DateToString(now));
+            Map<String, Integer> param = new HashMap<>();
+            param.put("id",liangInfo.getMid());
+            param.put("version",version);
+            LiangPhone liangPhone = jxwxService.queryById(param);
 
-            if (liangPhone.getIsUsed() != 0){
-                return packResult(callback, 20001,"此号码已被领取",null);
-            }else{
-                LiangInfo info = jxwxService.queryByIdCard(liangInfo.getIdCardNo());
-
-                int version = Integer.parseInt(LiangUtil.DateToString(now));
-
-                if (version != liangPhone.getVersion()){
-                    return packResult(callback,30000,"非法参数",null);
+            if (liangPhone != null){
+                if (liangPhone.getIsUsed() != 0){
+                    return packResult(callback, 20001,"此号码已被领取",null);
                 }else{
+                    LiangInfo info = jxwxService.queryByIdCard(liangInfo.getIdCardNo());
+
                     if (info != null){
 
-                        return packResult(20002,"每个身份证只能登记一个号码",null);
+                        return packResult(callback, 20002,"每个身份证只能登记一个号码",null);
                     }else {
                         int temp = jxwxService.updateSetUsed(liangInfo.getMid());
 
@@ -586,7 +591,12 @@ public class JxwxInterfaceController extends BaseController {
                         }
                     }
                 }
+
+            }else{
+                return packResult(callback,30000,"非法参数",null);
             }
+
+
         }catch (Exception e){
             e.printStackTrace();
             return packResult(callback,50000,"服务异常",null);
@@ -601,5 +611,236 @@ public class JxwxInterfaceController extends BaseController {
         return callback + "(" + JSON.toJSONString(jxwxService.queryLiangByPhone(phone)) +")";
     }
 
+
+    /**
+     * 奖品服务类
+     */
+    @Resource
+    private PrizeService prizeService;
+
+    /**
+     * 答题享好礼--活动页面
+     * @param req
+     * @param callback
+     * @param openid
+     * @param phone
+     * @return
+     */
+    @RequestMapping(value = "getQAInfo",produces={"text/html;charset=UTF-8;","application/json;"})
+    @ResponseBody
+    public Object getQAInfo(HttpServletRequest req, String callback, String openid, String phone ){
+        // 参数异常
+        if (StringUtils.isEmpty(openid) || StringUtils.isEmpty(phone) || phone.length() != 11) {
+            return packResult(callback, 10001, "", null);
+        }
+        // 日期版本：20180404
+        Date now = new Date();
+        String version = JxMpUtil.DateToString(now);
+        JSONObject json = null;
+        JSONArray arr = new JSONArray();
+        try {
+            // 当天答题记录
+            List<QuestionAnswerInfo> infos = jxwxService.queryQAByPhone(phone);
+            int index = 0;
+            // 当天答题次数
+            int current_count = 0;
+            if (infos != null){
+                while (index < infos.size()){
+                    // 组装用户活动期间获奖内容
+                    if (infos.get(index).getPrizeid() != null){
+                        json = new JSONObject();
+                        json.put("prizeid",infos.get(index).getPrizeid());
+                        json.put("gmtCreate",infos.get(index).getGmtCreate());
+                        arr.add(json);
+                    }
+                    if (infos.get(index).getPeriod() == Integer.parseInt(version)){
+                        current_count++;
+                        if (infos.get(index).getPrizeid() != null){
+                            current_count = 3;
+                        }
+                    }
+                    index++;
+                }
+            }
+            //  当天还可以答题（从未答题，错误答题一次,0/1）
+            if (current_count < 2){
+
+                // 分享成功才能使用的第二次机会
+                if (current_count > 0){
+                    Map<String, Object> param = new HashMap<>();
+                    param.put("mobile",phone);
+                    param.put("source","qa"+version);
+
+                    RegisterInfo info = registerService.queryByParam(param);
+                    // 未分享
+                    if (info == null){
+                        return packResult(callback,20003,""+current_count, JSON.toJSONString(arr));
+                    }
+                }
+
+                // session中获取题目
+                Object sess = getSessionUserInfo(req,"user_"+phone);
+                String data = "";
+                // session中不存在，随机三题并存入session
+                if (sess == null){
+                    // 题目总量
+                    int count = jxwxService.queryQACount();
+                    int one_third = count/3;
+                    int temp = 1 + (int) (Math.random() * one_third);
+                    List<QuestionAnswer> qal = new ArrayList<>();
+                    qal.add(jxwxService.queryQAById(temp));
+                    temp+= (1 + (int) (Math.random() * one_third));
+                    qal.add(jxwxService.queryQAById(temp));
+                    temp+= (1 + (int) (Math.random() * one_third));
+                    qal.add(jxwxService.queryQAById(temp));
+                    data = JSON.toJSONString(qal);
+                    setSession(req, data, "user_"+phone);
+                }else{
+                    data = String.valueOf(sess);
+                }
+                json = new JSONObject();
+                json.put("question",data);
+                json.put("prize",JSON.toJSONString(arr));
+                return packResult(callback,20000,""+current_count,json.toJSONString());
+            }else if (current_count == 2){
+                // 当天抽奖次数已用完且都答错
+                return packResult(callback,20001,""+current_count,JSON.toJSONString(arr));
+            }else {
+                // 当天已领奖，不返回实际抽奖次数
+                return packResult(callback,20002,null,JSON.toJSONString(arr));
+            }
+
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return packResult(callback,30000,"",null);
+    }
+
+    /**
+     * 答题享好礼--答题完毕提交页面
+     * @param req
+     * @param callback
+     * @param openid
+     * @param phone
+     * @param answer 示例：A,B,C
+     * @return
+     */
+    @RequestMapping(value = "commitQA",produces={"text/html;charset=UTF-8;","application/json;"})
+    @ResponseBody
+    public synchronized Object commitQA(HttpServletRequest req, String callback, String openid, String phone, String answer){
+        if (StringUtils.isEmpty(callback) ||
+                StringUtils.isEmpty(phone) ||
+                StringUtils.isEmpty(answer) ||
+                answer.length() != 5 ||
+                QuestionAnswerUtils.appearNumber(answer,",") != 2){
+            return packResult(callback,10000,null,null);
+        }
+        Date now = new Date();
+        String version = JxMpUtil.DateToString(now);
+        String[]  ans = answer.split(",");
+        // session获取题目信息
+        Object sess = getSessionUserInfo(req,"user_"+phone);
+        req.getSession().removeAttribute("user_"+phone);
+        if (sess == null){
+            return packResult(callback,10001,null,null);
+        }
+        try {
+
+            // json化
+            List<QuestionAnswer> list = JSONArray.parseArray(String.valueOf(sess), QuestionAnswer.class);
+            int temp = 0;
+            String question= "";
+            int rignt_count=0;
+            // 题目与答案匹配
+            while (temp < list.size()){
+                if (list.get(temp).getAnswerRight().equals(ans[temp])){
+                    rignt_count++;
+                }
+                question+="," + list.get(temp).getId();
+                temp++;
+            }
+            //
+            QuestionAnswerInfo info = new QuestionAnswerInfo(null,
+                    phone,
+                    openid,
+                    null,
+                    new Date(),
+                    question.substring(1),
+                    answer,
+                    Integer.parseInt(version));
+            // 3题全对才能抽奖
+            if (rignt_count != 3){
+                jxwxService.insertQA(info);
+                return packResult(callback,20002,null,null);
+            }else{
+                List<Prize> plist = prizeService.list("qa");
+                List<Prize> nlist = new ArrayList<>();
+                // 过滤已抽完奖品
+                for(Prize p : plist){
+                    if (p.getReceivedNumber() < p.getAmount()){
+                        nlist.add(p);
+                    }
+                }
+                // 随机一个奖品
+                int prizeId = (int) (Math.random() * nlist.size());
+                Prize tar =  nlist.get(prizeId);
+                // 更新奖品库存
+                tar.setReceivedNumber(tar.getReceivedNumber()+1);
+                tar.setVersion(tar.getVersion()+1);
+                int update = prizeService.updateById(tar);
+                if (update < 1){
+                    return packResult(callback,20001,null,null);
+                }
+                // 信息入库
+                info.setPrizeid(tar.getPrizeid());
+                jxwxService.insertQA(info);
+                return packResult(callback,20000,""+tar.getPrizeid(),null);
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return packResult(callback,30000,"",null);
+    }
+
+    /**
+     * 校园优惠活动登记页面--获取用户已登记信息
+     * @param req
+     * @param phone
+     * @param callback
+     * @return
+     */
+    @RequestMapping( value = "schooleSale",produces={"text/html;charset=UTF-8;","application/json;"})
+    @ResponseBody
+    public String schooleSale(HttpServletRequest req, String phone, String callback){
+        if (StringUtils.isEmpty(phone)){
+            return packResult(callback,10000,null,null);
+        }
+        try {
+            Map<String, Object> param = new HashMap<>();
+            param.put("mobile",phone);
+            param.put("source","schooleSale");
+            RegisterInfo registerInfo = registerService.queryByParam(param);
+            if (registerInfo != null){
+                SchoolSaleBean schoolSaleBean = new SchoolSaleBean(phone,
+                        registerInfo.getReserveone().substring(0,registerInfo.getReserveone().indexOf(",")),
+                        registerInfo.getReserveone().substring(registerInfo.getReserveone().indexOf(",")+1),
+                        registerInfo.getReservetwo().substring(registerInfo.getReservetwo().indexOf(",")+1),
+                        registerInfo.getReservetwo().substring(0,registerInfo.getReservetwo().indexOf(",")),
+                        null,
+                        0);
+                return packResult(callback,20000,null,JSON.toJSONString(schoolSaleBean));
+            }else{
+                return packResult(callback,20001,null,null);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return packResult(callback,30000,null,null);
+        }
+
+    }
 
 }

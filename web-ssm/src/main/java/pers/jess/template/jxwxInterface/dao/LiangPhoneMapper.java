@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import pers.jess.template.jxwxInterface.model.LiangPhone;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface LiangPhoneMapper {
@@ -14,7 +15,6 @@ public interface LiangPhoneMapper {
 
     int updateSetUsed(Integer id);
 
-    LiangPhone queryById(Integer id);
-
+    LiangPhone queryById(Map<String, Integer> param);
 
 }

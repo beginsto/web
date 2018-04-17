@@ -32,7 +32,7 @@ public class TokenProcessor {
      * Token：Nv6RRuGEVvmGjB+jimI/gw==
      * @return
      */
-    public String createToken(){
+    public static String createToken(){
         //  7346734837483  834u938493493849384  43434384
         String token = (System.currentTimeMillis() + new Random().nextInt(999999999)) + "";
         //数据指纹   128位长   16个字节  md5
@@ -45,5 +45,23 @@ public class TokenProcessor {
         }catch (NoSuchAlgorithmException e){
             throw new RuntimeException(e);
         }
+    }
+
+
+    public static String createToken(String str){
+        //数据指纹   128位长   16个字节  md5
+        try {
+            MessageDigest md = MessageDigest.getInstance("md5");
+            byte md5[] =  md.digest(str.getBytes());
+            //base64编码--任意二进制编码明文字符   adfsdfsdfsf
+            BASE64Encoder encoder = new BASE64Encoder();
+            return encoder.encode(md5);
+        }catch (NoSuchAlgorithmException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void main(String[] args){
+        System.out.println(createToken("oS8a0jkXuNBTejx7nV7Vx2LmDlNM"));
     }
 }

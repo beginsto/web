@@ -66,7 +66,7 @@ public class AdController extends BaseController{
         if (StringUtils.isEmpty(phone) || phone.length() != 11){
             return packResult(callback,20001,"未关联手机",null);
         }
-
+        System.out.println();
         AdUser adUser = adService.queryByPhone(phone);
 
         if (adUser == null){
@@ -84,21 +84,21 @@ public class AdController extends BaseController{
     /**
      * 获取门店列表
      * @param callback
-     * @param userId
+     * @param userid
      * @return
      */
     @RequestMapping(value = "getOrg", produces={"text/html;charset=UTF-8;","application/json;"})
     @ResponseBody
-    public Object getOrg(String callback, String userId){
+    public Object getOrg(String callback, String userid){
 
         Pattern pattern = Pattern.compile("^-?[0-9]+");
 
-        if (StringUtils.isEmpty(userId) ||
-                !pattern.matcher(userId).matches()){
+        if (StringUtils.isEmpty(userid) ||
+                !pattern.matcher(userid).matches()){
             return packResult(callback, 10000, "参数异常", null);
         }
 
-        List<AdOrganization> list = adService.listByUserId(Integer.parseInt(userId));
+        List<AdOrganization> list = adService.listByUserId(Integer.parseInt(userid));
         if (StringUtils.isEmpty(callback)){
             return JSON.toJSONString(list);
         }else{

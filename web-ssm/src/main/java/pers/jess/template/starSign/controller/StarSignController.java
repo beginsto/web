@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pers.jess.template.common.BaseController.BaseController;
 import pers.jess.template.common.model.User;
-import pers.jess.template.common.utils.CharacterEncoding;
 import pers.jess.template.common.utils.CommonUtil;
 import pers.jess.template.common.utils.GetWeChatUserInfo;
 import pers.jess.template.localphone.model.LocalPhone;
@@ -48,7 +47,7 @@ public class StarSignController extends BaseController{
     private LocalPhoneService localPhoneService;
 
 
-    @RequestMapping(value = "index")
+ /*   @RequestMapping(value = "index")
     public Object index(HttpServletRequest req, Model model) throws ParseException {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date now = new Date();
@@ -108,7 +107,7 @@ public class StarSignController extends BaseController{
         }
 
 
-    }
+    }*/
 
 
     @RequestMapping(value = "friend")
@@ -218,9 +217,6 @@ public class StarSignController extends BaseController{
             //map.put("issue",constellation_issue);
             if(isConstellation(zodiac,now))
                 map.put("isIssue","Y");
-            else
-                return packResult(callback,20000,"",JSON.toJSONString(map));
-
 
             //非当前星座用户没有邀请成功
             if (isInvited(openid,1,constellation_issue))
@@ -249,11 +245,25 @@ public class StarSignController extends BaseController{
     @ResponseBody
     public synchronized Object raffle(HttpServletRequest req, ConstellationInfo info, String callback){
         String openid = req.getParameter("openid")==null?"":req.getParameter("openid");
-      //  String raffleType = req.getParameter("raffleType")==null?"":req.getParameter("raffleType");
+        String raffleType = req.getParameter("raffleType")==null?"":req.getParameter("raffleType");
         try {
             Date now = new Date();
-            if (StringUtils.isEmpty(openid) || !StringUtils.equals(info.getZodiac(),CommonUtil.getConstellation(now)))
+            if (StringUtils.isEmpty(openid) || StringUtils.isEmpty(info.getZodiac()))
                 return packResult(callback, 10000,"",null);
+
+
+            if (raffleType.equals("2") || !StringUtils.equals(info.getZodiac(),CommonUtil.getConstellation(now))){
+                Map<String, Object> map = new HashMap<>();
+                map.put("inviterid",openid);
+                map.put("issue",CommonUtil.getConstellation(new Date()));
+                map.put("issuccess",1);
+                int count = starSignService.queryCountByParam(map);
+                if (count < 1){
+                    return packResult(callback, 10000,"",null);
+                }
+            }
+
+
 
             if (isRaffle(openid,now) != null)
                 return packResult(callback, 20000,"repeat",null);

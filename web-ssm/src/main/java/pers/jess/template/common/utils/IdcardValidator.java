@@ -395,11 +395,13 @@ public class IdcardValidator {
         String idcard15 = "130321860311519";
         String idcard18 = "330424198804101010";//
         // 15位身份证
-        System.out.println(isValidatedAllIdcard(idcard15));
+       // System.out.println(isValidatedAllIdcard(idcard15));
         // 18位身份证
-        System.out.println(isValidatedAllIdcard(idcard18));
+        System.out.println(isValidatedAllIdcard("330424198904191010"));
         // 15位身份证转18位身份证
-        System.out.println(convertIdcarBy15bit(idcard15));
+     //   System.out.println(convertIdcarBy15bit(idcard15));
+
+
     }
 }
 

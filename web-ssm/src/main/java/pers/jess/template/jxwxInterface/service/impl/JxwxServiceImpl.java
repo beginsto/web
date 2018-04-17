@@ -8,6 +8,7 @@ import pers.jess.template.jxwxInterface.service.JxwxService;
 
 import javax.persistence.Id;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class JxwxServiceImpl implements JxwxService {
@@ -115,8 +116,8 @@ public class JxwxServiceImpl implements JxwxService {
     }
 
     @Override
-    public LiangPhone queryById(Integer id){
-        return liangPhoneMapper.queryById(id);
+    public  LiangPhone queryById(Map<String, Integer> param){
+        return liangPhoneMapper.queryById(param);
     }
 
     @Override
@@ -125,8 +126,44 @@ public class JxwxServiceImpl implements JxwxService {
     }
 
     @Override
-    public LiangInfo queryLiangByPhone(String phone){
+    public List<LiangInfo> queryLiangByPhone(String phone){
         return liangInfoMapper.queryByPhone(phone);
+    }
+
+    /////
+    // 答题享好礼
+    /////
+
+    @Autowired
+    private QuestionAnswerInfoMapper questionAnswerInfoMapper;
+
+    @Autowired
+    private QuestionAnswerMapper questionAnswerMapper;
+
+    @Override
+    public int insertQA(QuestionAnswerInfo record){
+        return questionAnswerInfoMapper.insert(record);
+    }
+
+    @Override
+    public List<QuestionAnswerInfo> queryQAByParam(Map<String,  Object> param){
+        return questionAnswerInfoMapper.queryByParam(param);
+    }
+
+    // 活动期间所有答题记录
+    @Override
+    public List<QuestionAnswerInfo> queryQAByPhone(String phone){
+        return questionAnswerInfoMapper.queryByPhone(phone);
+    }
+
+    @Override
+    public QuestionAnswer queryQAById(Integer id){
+        return questionAnswerMapper.queryById(id);
+    }
+
+    @Override
+    public int queryQACount(){
+        return questionAnswerMapper.queryCount();
     }
 
 

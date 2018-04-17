@@ -3,6 +3,8 @@ package pers.jess.template.jxwxInterface.dao;
 import org.springframework.stereotype.Repository;
 import pers.jess.template.jxwxInterface.model.LiangInfo;
 
+import java.util.List;
+
 
 @Repository
 public interface LiangInfoMapper {
@@ -11,7 +13,7 @@ public interface LiangInfoMapper {
 
     LiangInfo queryByIdCard(String idCardNo);
 
-    LiangInfo queryByPhone(String phone);
+    List<LiangInfo> queryByPhone(String phone);
 
 
 }

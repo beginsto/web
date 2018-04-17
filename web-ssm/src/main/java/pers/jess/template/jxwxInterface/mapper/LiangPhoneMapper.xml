@@ -21,6 +21,7 @@
     left join t_liang_period p2
     on (p1.id = p2.mid)
     where p1.id = #{id,jdbcType=INTEGER}
+    and p2.version = #{version,jdbcType=INTEGER}
   </select>
   <select id="list" resultType="pers.jess.template.jxwxInterface.model.LiangPhone" >
     select
